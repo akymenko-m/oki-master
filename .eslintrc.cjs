@@ -20,10 +20,12 @@ module.exports = {
     project: ['./tsconfig.json', './tsconfig.node.json'],
     // project: './tsconfig.json',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', '@emotion'],
   rules: {
     'react/react-in-jsx-scope': 0,
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    '@emotion/jsx-import': 'error',
+    '@emotion/pkg-renaming': 'error',
   },
 
   // ignorePatterns: ['.eslintrc.cjs', 'vite.config.ts', 'src'],
