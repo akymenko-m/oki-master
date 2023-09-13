@@ -1,43 +1,35 @@
-// import { useTheme } from '@emotion/react';
-
+import { useState } from 'react';
 import Container from '../App/App.styled';
 import styles from './Header.styled';
-import { ReactComponent as ReactLogo } from '../../assets/logo.svg';
+import Logo from '../Logo/Logo';
+import NavList from '../NavList/NavList';
+import { ReactComponent as MenuIcon } from '../../assets/menu-icon.svg';
+import MobileMenu from '../MobileMenu/MobileMenu';
 
 function Header(): JSX.Element {
-  const { NavList, HeaderWrapper } = styles;
-  //   const theme = useTheme();
+  const { HeaderWrapper, Burger, Navigation } = styles;
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  const handleShowNavbar = () => {
+    setShowNavbar(!showNavbar);
+  };
 
   return (
     <header>
       <Container>
         <HeaderWrapper>
-          <nav>
-            <NavList>
-              <li>
-                <a href="/">
-                  {/* <Logo /> */}
-                  <ReactLogo />
-                </a>
-              </li>
-              <li>
-                <a href="/">Про нас</a>
-              </li>
-              <li>
-                <a href="/">Послуги</a>
-              </li>
-              <li>
-                <a href="/">Галерея</a>
-              </li>
-              <li>
-                <a href="/">Відгуки</a>
-              </li>
-              <li>
-                <a href="/">Контакти</a>
-              </li>
-            </NavList>
-          </nav>
+          <Navigation>
+            <Logo />
+
+            <NavList />
+          </Navigation>
+
+          <Burger type="button" onClick={handleShowNavbar}>
+            <MenuIcon />
+          </Burger>
         </HeaderWrapper>
+
+        <MobileMenu open={showNavbar} handleShowNavbar={handleShowNavbar} />
       </Container>
     </header>
   );
