@@ -9,7 +9,6 @@
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-
     /* Bundler mode */
     // "moduleResolution": "bundler",
     "moduleResolution": "Node",
