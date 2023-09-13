@@ -3,7 +3,7 @@ const theme = Object.freeze({
     text: '#141515',
     secondary: '#D9D9D9',
     white: '#ffffff',
-    accent: '41A92E',
+    accent: '#41A92E',
     dark: '#245D19',
     light: '#BCEA8F',
     'light-20': '#E6F5D9',
