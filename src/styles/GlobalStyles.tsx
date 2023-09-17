@@ -14,6 +14,7 @@ function GlobalStyles() {
         body {
           margin: 0;
           font-family: 'Raleway', sans-serif;
+          font-weight: 400;
 
           @media (min-width: ${theme.breakpoints.s}) {
             font-size: ${theme.fontSizes.mobile.small};
@@ -60,6 +61,10 @@ function GlobalStyles() {
           display: block;
           max-width: 100%;
           height: auto;
+        }
+
+        .accent {
+          color: ${theme.colors.accent};
         }
       `}
     />
