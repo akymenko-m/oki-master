@@ -47,6 +47,7 @@ declare module '@emotion/react' {
     };
     lineHeight: {
       auto: string;
+      xs: string;
       small: string;
       medium: string;
       large: string;

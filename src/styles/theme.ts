@@ -48,6 +48,7 @@ const theme = Object.freeze({
   },
   lineHeight: {
     auto: 'auto',
+    xs: '16px',
     small: '28px',
     medium: '32px',
     large: '40px',
