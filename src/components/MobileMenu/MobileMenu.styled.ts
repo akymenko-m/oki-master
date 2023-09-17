@@ -13,6 +13,10 @@ const Menu = styled.div`
   transition:
     width 0.5s ease-in-out,
     opacity 0.5s ease-in-out;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.m}) {
+    display: none;
+  }
 `;
 
 const CloseButton = styled.button`
