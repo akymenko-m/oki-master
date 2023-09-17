@@ -22,15 +22,15 @@ function About(): JSX.Element {
 
             <picture>
               <source
-                srcSet="./src/assets/about/іrrigator-tablet.png"
+                srcSet="./src/assets/about/irrigator-tablet.png"
                 media="(max-width: 768px)"
               />
               <source
-                srcSet="./src/assets/about/іrrigator-desktop.png"
+                srcSet="./src/assets/about/irrigator-desktop.png"
                 media="(min-width: 1280px)"
               />
               <Image
-                src="./src/assets/about/іrrigator-tablet.png"
+                src="./src/assets/about/irrigator-tablet.png"
                 alt="Іригатор"
               />
             </picture>
