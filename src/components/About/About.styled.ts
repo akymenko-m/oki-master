@@ -1,13 +1,5 @@
 import styled from '@emotion/styled';
 
-const Section = styled.section`
-  margin-bottom: 56px;
-
-  @media (min-width: ${(props) => props.theme.breakpoints.m}) {
-    margin-bottom: 48px;
-  }
-`;
-
 const Title = styled.h2`
   margin-bottom: 18px;
   font-size: ${(props) => props.theme.fontSizes.mobile.large};
@@ -133,7 +125,6 @@ const Text = styled.p`
 `;
 
 export default {
-  Section,
   Title,
   Text,
   Overlay,
