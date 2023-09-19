@@ -1,9 +1,9 @@
-import { OnProgressProps } from 'react-player/base';
 import log from 'loglevel';
+import { IYoutubeEmbed } from '../components/YoutubeEmbed/YoutubeEmbed.interface';
 
 type LocalStorageKey = string;
 
-const save = (key: LocalStorageKey, value: OnProgressProps): void => {
+const save = (key: LocalStorageKey, value: IYoutubeEmbed): void => {
   try {
     const serializedState = JSON.stringify(value);
     localStorage.setItem(key, serializedState);
@@ -12,7 +12,7 @@ const save = (key: LocalStorageKey, value: OnProgressProps): void => {
   }
 };
 
-const load = (key: LocalStorageKey): OnProgressProps | undefined => {
+const load = (key: LocalStorageKey): IYoutubeEmbed | undefined => {
   try {
     const serializedState = localStorage.getItem(key);
     return serializedState === null ? undefined : JSON.parse(serializedState);

@@ -2,9 +2,10 @@ import ReactPlayer from 'react-player/youtube';
 import { useRef, useState } from 'react';
 import { OnProgressProps } from 'react-player/base';
 import styles from './YoutubeEmbed.styled';
+import { IYoutubeEmbed } from './YoutubeEmbed.interface';
 import storage from '../../helpers/storage';
 
-const DEFAULT_STATE: OnProgressProps = {
+const DEFAULT_STATE: IYoutubeEmbed = {
   playing: false,
   seeking: false,
   loaded: 0,
