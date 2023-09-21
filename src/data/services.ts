@@ -1,18 +1,33 @@
-import bloodPressureMobile from '../../public/services/blood-pressure-mobile.jpg';
-import bloodPressureTablet from '../../public/services/blood-pressure-tablet.jpg';
-import bloodPressureDesktop from '../../public/services/blood-pressure-desktop.jpg';
+import bloodPressureMobile from '../assets/services/blood-pressure-mobile.jpg';
+import bloodPressureTablet from '../assets/services/blood-pressure-tablet.jpg';
+import bloodPressureDesktop from '../assets/services/blood-pressure-desktop.jpg';
 
-import nebulizerMobile from '../../public/services/nebulizer-mobile.jpg';
-import nebulizerTablet from '../../public/services/nebulizer-tablet.jpg';
-import nebulizerDesktop from '../../public/services/nebulizer-desktop.jpg';
+import nebulizerMobile from '../assets/services/nebulizer-mobile.jpg';
+import nebulizerTablet from '../assets/services/nebulizer-tablet.jpg';
+import nebulizerDesktop from '../assets/services/nebulizer-desktop.jpg';
 
-import hearingAidMobile from '../../public/services/hearing-aid-mobile.jpg';
-import hearingAidTablet from '../../public/services/hearing-aid-tablet.jpg';
-import hearingAidDesktop from '../../public/services/hearing-aid-desktop.jpg';
+import hearingAidMobile from '../assets/services/hearing-aid-mobile.jpg';
+import hearingAidTablet from '../assets/services/hearing-aid-tablet.jpg';
+import hearingAidDesktop from '../assets/services/hearing-aid-desktop.jpg';
 
-import oralIrrigatorMobile from '../../public/services/oral-irrigator-mobile.jpg';
-import oralIrrigatorTablet from '../../public/services/oral-irrigator-tablet.jpg';
-import oralIrrigatorDesktop from '../../public/services/oral-irrigator-desktop.jpg';
+import oralIrrigatorMobile from '../assets/services/oral-irrigator-mobile.jpg';
+import oralIrrigatorTablet from '../assets/services/oral-irrigator-tablet.jpg';
+import oralIrrigatorDesktop from '../assets/services/oral-irrigator-desktop.jpg';
+
+import cuffMobile from '../assets/services/cuff-mobile.jpg';
+import cuffTablet from '../assets/services/cuff-tablet.jpg';
+import cuffDesktop from '../assets/services/cuff-desktop.jpg';
+
+import oxygenConcentratorMobile from '../assets/services/oxygen-concentrator-mobile.jpg';
+import oxygenConcentratorTablet from '../assets/services/oxygen-concentrator-tablet.jpg';
+import oxygenConcentratorDesktop from '../assets/services/oxygen-concentrator-desktop.jpg';
+
+import { ReactComponent as BloodPressure } from '../assets/services/blood-pressure-icon.svg';
+import { ReactComponent as Nebulizer } from '../assets/services/nebulizer-icon.svg';
+import { ReactComponent as HearingAid } from '../assets/services/hearing-aid-icon.svg';
+import { ReactComponent as OralIrrigator } from '../assets/services/oral-irrigator-icon.svg';
+import { ReactComponent as Cuff } from '../assets/services/cuff-icon.svg';
+import { ReactComponent as OxygenConcentrator } from '../assets/services/oxygen-concentrator-icon.svg';
 
 import { IServicesData } from '../interfaces/services.interface';
 
@@ -40,6 +55,7 @@ const ServicesData: IServicesData[] = [
     ],
     description: {
       title: 'Тонометр',
+      icon: BloodPressure,
       text: "– це медичний прилад, який допомагає контролювати артеріальний тиск, вимірюючи систолічний та діастолічний показники. Він не лише незамінний для людей з проблемами артеріального тиску, але й є важливим інструментом для загального контролю над вашим здоров'ям.",
     },
   },
@@ -66,6 +82,7 @@ const ServicesData: IServicesData[] = [
     ],
     description: {
       title: 'Небулайзер',
+      icon: Nebulizer,
       text: "– це пристрій, який працює на користь вашого дихального здоров'я. Він перетворює лікарські препарати в аерозольну хмару, що легко і ефективно доставляється в легені, впливаючи на всі відділи дихальної системи і поліпшуючи лікування таких станів, як кашель, бронхіт, та запалення легенів.",
     },
   },
@@ -92,6 +109,7 @@ const ServicesData: IServicesData[] = [
     ],
     description: {
       title: 'Слуховий апарат',
+      icon: HearingAid,
       text: '– цей прилад є технологічним проривом в галузі слухового відновлення. Він здатний посилити і покращити звуки, дозволяючи користувачам з різними ступенями втрати слуху насолоджуватися різноманітністю звуків навколишнього світу.',
     },
   },
@@ -118,15 +136,16 @@ const ServicesData: IServicesData[] = [
     ],
     description: {
       title: 'Іригатор',
+      icon: OralIrrigator,
       text: "– цей прилад є невід'ємною частиною щоденного гігієнічного догляду за ротовою порожниною. Він застосовує силу води для ретельного очищення міжзубних просторів і зубоясеневих складок, що допомагає видалити зубний наліт і забезпечити здоров'я ясен.",
     },
   },
   {
     title: 'Ремонт манжети',
     images: {
-      mobile: bloodPressureMobile,
-      tablet: bloodPressureTablet,
-      desktop: bloodPressureDesktop,
+      mobile: cuffMobile,
+      tablet: cuffTablet,
+      desktop: cuffDesktop,
     },
     features: [
       {
@@ -140,15 +159,16 @@ const ServicesData: IServicesData[] = [
     ],
     description: {
       title: 'Манжета для тонометра',
+      icon: Cuff,
       text: '– змінний аксесуар, що забезпечує точність вимірювання артеріального тиску. Вона грає ключову роль у передачі компресійного тиску з перетискуваної артерії, забезпечуючи точні та надійні результати.',
     },
   },
   {
     title: 'Ремонт концентратора',
     images: {
-      mobile: bloodPressureMobile,
-      tablet: bloodPressureTablet,
-      desktop: bloodPressureDesktop,
+      mobile: oxygenConcentratorMobile,
+      tablet: oxygenConcentratorTablet,
+      desktop: oxygenConcentratorDesktop,
     },
     features: [
       {
@@ -166,6 +186,7 @@ const ServicesData: IServicesData[] = [
     ],
     description: {
       title: 'Концентратор кисню',
+      icon: OxygenConcentrator,
       text: "– медичний пристрій, який розроблений для забезпечення збагаченого киснем повітря. Він може бути незамінний для людей з порушеннями функції дихання, а також може служити як важливий інструмент для підтримки загального здоров'я, концентруючи кисень з атмосферного повітря.",
     },
   },
