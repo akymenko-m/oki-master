@@ -19,22 +19,22 @@ const Menu = styled.div`
   }
 `;
 
-const CloseButton = styled.button`
-  display: ${(props) => (props.className?.includes('open') ? 'block' : 'none')};
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 12px;
-  right: 15px;
-  background-color: transparent;
-  & path {
-    transition: fill 250ms ${(props) => props.theme.animations.cubicBezier};
-  }
+// const CloseButton = styled.button`
+//   display: ${(props) => (props.className?.includes('open') ? 'block' : 'none')};
+//   width: 20px;
+//   height: 20px;
+//   position: absolute;
+//   top: 12px;
+//   right: 15px;
+//   background-color: transparent;
+//   & path {
+//     transition: fill 250ms ${(props) => props.theme.animations.cubicBezier};
+//   }
 
-  &:hover path,
-  &:focus path {
-    fill: ${(props) => props.theme.colors.accent};
-  }
-`;
+//   &:hover path,
+//   &:focus path {
+//     fill: ${(props) => props.theme.colors.accent};
+//   }
+// `;
 
-export default { Menu, CloseButton };
+export default { Menu };
