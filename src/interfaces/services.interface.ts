@@ -11,6 +11,7 @@ export interface IServicesData {
   }>;
   description: {
     title: string;
+    icon: React.FC<React.SVGProps<SVGSVGElement>>;
     text: string;
   };
 }
