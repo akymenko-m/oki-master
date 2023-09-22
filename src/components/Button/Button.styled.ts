@@ -18,6 +18,20 @@ const StyledButton = styled.button`
     font-size: ${(props) => props.theme.fontSizes.mobile.small};
     color: ${(props) => props.theme.colors.accent};
     font-weight: 500;
+
+    transition:
+      color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    &:active {
+      background-color: ${(props) => props.theme.colors.dark};
+      color: ${(props) => props.theme.colors.white};
+      border: 1px solid ${(props) => props.theme.colors.dark};
+    }
   }
 
   &.features {
@@ -69,11 +83,6 @@ const StyledButton = styled.button`
   }
 `;
 
-const features = css`
-  width: 20px;
-  height: 20px;
-`;
-
 const mobileMenu = css`
   position: absolute;
   top: 12px;
@@ -82,4 +91,4 @@ const mobileMenu = css`
   height: 20px;
 `;
 
-export default { StyledButton, features, mobileMenu };
+export default { StyledButton, mobileMenu };
