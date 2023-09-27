@@ -1,5 +1,5 @@
-import { GoogleMap, MarkerF } from '@react-google-maps/api';
-import { useCallback, useRef } from 'react';
+import { GoogleMap, InfoWindowF, MarkerF } from '@react-google-maps/api';
+import { useCallback, useRef, useState } from 'react';
 import styles from './Map.styled';
 import defaultTheme from './Map.theme';
 import defaultPosition from '../../data/location';
@@ -35,6 +35,8 @@ interface IProps {
 function Map({ center, mapUrl }: IProps): JSX.Element {
   const { Container } = styles;
 
+  const [toggleWindow, setToggleWindow] = useState(true);
+
   const mapRef = useRef<google.maps.Map | undefined>(undefined);
 
   const onLoad = useCallback((map: google.maps.Map) => {
@@ -61,13 +63,27 @@ function Map({ center, mapUrl }: IProps): JSX.Element {
         options={defaultOptions}
       >
         <MarkerF
+          onClick={() => setToggleWindow(!toggleWindow)}
           position={defaultPosition}
-          label={{ text: 'Медтехніка', fontWeight: '500' }}
           icon={{
             scale: 7,
             url: '/location.svg',
           }}
-        />
+        >
+          {toggleWindow && (
+            <InfoWindowF
+              position={defaultPosition}
+              onCloseClick={() => setToggleWindow(!toggleWindow)}
+            >
+              <div>
+                <p>
+                  <b>Проспект О.Поля, 59</b>
+                </p>
+                <p>Медтехніка</p>
+              </div>
+            </InfoWindowF>
+          )}
+        </MarkerF>
       </GoogleMap>
     </Container>
   );
