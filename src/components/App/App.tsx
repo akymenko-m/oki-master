@@ -1,5 +1,6 @@
 import About from '../About/About';
 import Contacts from '../Contacts/Contacts';
+import Gallery from '../Gallery/Gallery';
 import Header from '../Header/Header';
 import Process from '../Process/Process';
 import Reviews from '../Reviews/Reviews';
@@ -15,9 +16,8 @@ function App() {
 
       <About />
       <Services />
-
+      <Gallery />
       <Process />
-
       <Reviews />
       <Contacts apiKey={API_KEY} mapUrl={MAP_URL} />
     </div>
