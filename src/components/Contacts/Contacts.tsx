@@ -5,6 +5,7 @@ import Map from '../Map/Map';
 import Section from '../Section/Section';
 import Title from '../Title/Title';
 import styles from './Contacts.styled';
+import AddressData from '../../data/address';
 
 const defaultCenter = {
   lat: 48.4570111,
@@ -26,19 +27,21 @@ function Contacts({ apiKey, mapUrl }: IProps): JSX.Element {
 
   return (
     <Section>
-      <Container>
-        <Title text="Контакти" />
+      <div id="contacts">
+        <Container>
+          <Title text="Контакти" />
 
-        <ContentBlock>
-          {isLoaded ? (
-            <Map mapUrl={mapUrl} center={defaultCenter} />
-          ) : (
-            <h2>Loading...</h2>
-          )}
+          <ContentBlock>
+            {isLoaded ? (
+              <Map mapUrl={mapUrl} center={defaultCenter} />
+            ) : (
+              <h2>Loading...</h2>
+            )}
 
-          <Address />
-        </ContentBlock>
-      </Container>
+            <Address className="contacts" location={AddressData.locationFull} />
+          </ContentBlock>
+        </Container>
+      </div>
     </Section>
   );
 }

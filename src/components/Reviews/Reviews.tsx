@@ -10,15 +10,17 @@ function Reviews(): JSX.Element {
 
   return (
     <Section>
-      <Container>
-        <Title text="Відгуки" />
+      <div id="reviews">
+        <Container>
+          <Title text="Відгуки" />
 
-        <List>
-          {ReviewsData.map((el) => (
-            <ReviewCard key={el.date} data={el} />
-          ))}
-        </List>
-      </Container>
+          <List>
+            {ReviewsData.map((el) => (
+              <ReviewCard key={el.date} data={el} />
+            ))}
+          </List>
+        </Container>
+      </div>
     </Section>
   );
 }

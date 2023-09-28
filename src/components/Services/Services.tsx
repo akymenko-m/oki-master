@@ -10,15 +10,17 @@ function Services(): JSX.Element {
 
   return (
     <Section>
-      <Container>
-        <Title text="Послуги" />
+      <div id="services">
+        <Container>
+          <Title text="Послуги" />
 
-        <List>
-          {ServicesData.map((el) => (
-            <ServicesCard key={el.title} data={el} />
-          ))}
-        </List>
-      </Container>
+          <List>
+            {ServicesData.map((el) => (
+              <ServicesCard key={el.title} data={el} />
+            ))}
+          </List>
+        </Container>
+      </div>
     </Section>
   );
 }
