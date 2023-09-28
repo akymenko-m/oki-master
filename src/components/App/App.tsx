@@ -1,5 +1,7 @@
+import ScrollToHashElement from '../../helpers/scrollToHashElement';
 import About from '../About/About';
 import Contacts from '../Contacts/Contacts';
+import Footer from '../Footer/Footer';
 import Gallery from '../Gallery/Gallery';
 import Header from '../Header/Header';
 import Process from '../Process/Process';
@@ -12,6 +14,7 @@ const MAP_URL = process.env.MAP_URL!;
 function App() {
   return (
     <div>
+      <ScrollToHashElement />
       <Header />
 
       <About />
@@ -20,6 +23,7 @@ function App() {
       <Process />
       <Reviews />
       <Contacts apiKey={API_KEY} mapUrl={MAP_URL} />
+      <Footer />
     </div>
   );
 }
