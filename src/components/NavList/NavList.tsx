@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './NavList.styled';
 
 interface IProps {
@@ -5,25 +6,25 @@ interface IProps {
 }
 
 function NavList({ className }: IProps): JSX.Element {
-  const { List } = styles;
+  const { List, Item } = styles;
 
   return (
     <List className={className}>
-      <li>
-        <a href="/">Про нас</a>
-      </li>
-      <li>
-        <a href="/">Послуги</a>
-      </li>
-      <li>
-        <a href="/">Галерея</a>
-      </li>
-      <li>
-        <a href="/">Відгуки</a>
-      </li>
-      <li>
-        <a href="/">Контакти</a>
-      </li>
+      <Item className={className}>
+        <Link to="#about">Про нас</Link>
+      </Item>
+      <Item className={className}>
+        <Link to="#services">Послуги</Link>
+      </Item>
+      <Item className={className}>
+        <Link to="#gallery">Галерея</Link>
+      </Item>
+      <Item className={className}>
+        <Link to="#reviews">Відгуки</Link>
+      </Item>
+      <Item className={className}>
+        <Link to="#contacts">Контакти</Link>
+      </Item>
     </List>
   );
 }
