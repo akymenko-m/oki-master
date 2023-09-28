@@ -3,40 +3,48 @@ import { ReactComponent as LocationIcon } from '../../assets/location-icon.svg';
 import { ReactComponent as CalendarIcon } from '../../assets/calendar-icon.svg';
 import { ReactComponent as ClockIcon } from '../../assets/clock-icon.svg';
 import { ReactComponent as PhoneIcon } from '../../assets/phone-icon.svg';
+import AddressData from '../../data/address';
 
-function Address(): JSX.Element {
+interface IProps {
+  location: string;
+  className?: string;
+}
+
+function Address({ location, className }: IProps): JSX.Element {
   const { Text, List } = styles;
 
   return (
     <div>
       <address>
-        <List>
+        <List className={className}>
           <li>
             <Text
+              className={className}
               href="https://maps.app.goo.gl/nFDaPGjyWNFy15iF8"
               target="_blank"
               rel="noreferrer noopener"
             >
               <LocationIcon />
-              <span className="bold">Адреса:</span> просп. Олександра Поля, 59
+              <span className="bold">Адреса:</span> {location}
             </Text>
           </li>
           <li>
-            <Text href="tel:+380987397280">
+            <Text className={className} href="tel:+380987397280">
               <PhoneIcon />
-              <span className="bold">Телефон:</span> +38(097) 7397280
+              <span className="bold">Телефон:</span> {AddressData.phone}
             </Text>
           </li>
           <li>
-            <Text>
+            <Text className={className}>
               <CalendarIcon />
-              <span className="bold">Дні роботи:</span> пн-пт
+              <span className="bold">Дні роботи:</span> {AddressData.workDays}
             </Text>
           </li>
           <li>
-            <Text>
+            <Text className={className}>
               <ClockIcon />
-              <span className="bold">Години роботи:</span> 10:00 – 18:00
+              <span className="bold">Години роботи:</span>{' '}
+              {AddressData.workHours}
             </Text>
           </li>
         </List>
@@ -44,5 +52,9 @@ function Address(): JSX.Element {
     </div>
   );
 }
+
+Address.defaultProps = {
+  className: '',
+};
 
 export default Address;
