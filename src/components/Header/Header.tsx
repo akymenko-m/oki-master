@@ -19,9 +19,9 @@ function Header(): JSX.Element {
       <Container>
         <HeaderWrapper>
           <Navigation>
-            <Logo />
+            <Logo className="header" />
 
-            <NavList />
+            <NavList className="header" />
           </Navigation>
 
           <Burger type="button" onClick={handleShowNavbar}>
