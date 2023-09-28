@@ -7,6 +7,10 @@ const List = styled.ul`
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
     gap: 40px;
+
+    &.footer {
+      gap: 20px;
+    }
   }
 `;
 
@@ -15,7 +19,7 @@ const Text = styled.a`
   align-items: center;
   gap: 4px;
   font-style: normal;
-  line-height: 30px;
+  line-height: ${(props) => props.theme.lineHeight.medium};
 
   & .bold {
     font-weight: 500;
@@ -25,12 +29,26 @@ const Text = styled.a`
     width: 20px;
   }
 
+  &.contacts {
+    fill: ${(props) => props.theme.colors.accent};
+  }
+
+  &.footer {
+    font-size: ${(props) => props.theme.fontSizes.mobile.xs};
+    fill: ${(props) => props.theme.colors.text};
+  }
+
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
     gap: 8px;
     font-size: ${(props) => props.theme.fontSizes.desktop.medium};
 
     & svg {
       width: 30px;
+    }
+
+    &.footer {
+      font-size: ${(props) => props.theme.fontSizes.desktop.small};
+      line-height: 30px;
     }
   }
 

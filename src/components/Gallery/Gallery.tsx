@@ -9,23 +9,25 @@ function Gallery(): JSX.Element {
 
   return (
     <Section>
-      <Container>
-        <Title text="Галерея" />
+      <div id="gallery">
+        <Container>
+          <Title text="Галерея" />
 
-        <GalleryContainer>
-          {ImagesData.map((el) => (
-            <Item key={el.id}>
-              <picture>
-                <source srcSet={el.desktop} media="(min-width: 1280px)" />
-                <source srcSet={el.tablet} media="(min-width: 768px)" />
-                <source srcSet={el.mobile} media="(max-width: 767px)" />
+          <GalleryContainer>
+            {ImagesData.map((el) => (
+              <Item key={el.id}>
+                <picture>
+                  <source srcSet={el.desktop} media="(min-width: 1280px)" />
+                  <source srcSet={el.tablet} media="(min-width: 768px)" />
+                  <source srcSet={el.mobile} media="(max-width: 767px)" />
 
-                <Image src={el.mobile} alt="Приклад робіт" />
-              </picture>
-            </Item>
-          ))}
-        </GalleryContainer>
-      </Container>
+                  <Image src={el.mobile} alt="Приклад робіт" />
+                </picture>
+              </Item>
+            ))}
+          </GalleryContainer>
+        </Container>
+      </div>
     </Section>
   );
 }
