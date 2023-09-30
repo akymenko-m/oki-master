@@ -15,6 +15,7 @@ function GlobalStyles() {
           margin: 0;
           font-family: 'Raleway', sans-serif;
           font-weight: 400;
+          color: ${theme.colors.text};
 
           @media (min-width: ${theme.breakpoints.s}) {
             font-size: ${theme.fontSizes.mobile.small};
