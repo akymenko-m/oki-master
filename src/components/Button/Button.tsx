@@ -1,7 +1,7 @@
 import styles from './Button.styled';
 
 interface IProps extends React.ComponentPropsWithoutRef<'button'> {
-  onClick: () => void;
+  onClick?: () => void;
   type: 'button' | 'submit';
 }
 
@@ -18,5 +18,9 @@ function Button({ onClick, type, children, className }: IProps): JSX.Element {
     </StyledButton>
   );
 }
+
+Button.defaultProps = {
+  onClick: () => {},
+};
 
 export default Button;
