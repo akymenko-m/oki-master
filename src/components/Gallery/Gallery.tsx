@@ -11,7 +11,7 @@ function Gallery(): JSX.Element {
     <Section>
       <div id="gallery">
         <Container>
-          <Title text="Галерея" />
+          <Title>Галерея</Title>
 
           <GalleryContainer>
             {ImagesData.map((el) => (

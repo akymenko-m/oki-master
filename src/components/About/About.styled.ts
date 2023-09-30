@@ -1,23 +1,5 @@
 import styled from '@emotion/styled';
 
-const Title = styled.h2`
-  margin-bottom: 18px;
-  font-size: ${(props) => props.theme.fontSizes.mobile.large};
-  font-weight: 500;
-  text-align: center;
-
-  @media (min-width: ${(props) => props.theme.breakpoints.m}) {
-    margin-bottom: 25px;
-    text-align: start;
-    font-size: ${(props) => props.theme.fontSizes.desktop.xxl};
-  }
-
-  @media (min-width: ${(props) => props.theme.breakpoints.l}) {
-    margin-bottom: 20px;
-    line-height: ${(props) => props.theme.lineHeight.xxl};
-  }
-`;
-
 const Content = styled.div`
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
     display: flex;
@@ -125,7 +107,6 @@ const Text = styled.p`
 `;
 
 export default {
-  Title,
   Text,
   Overlay,
   Content,

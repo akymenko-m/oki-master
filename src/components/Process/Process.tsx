@@ -7,7 +7,7 @@ function Process(): JSX.Element {
   return (
     <Section>
       <Container>
-        <Title text="Процес" />
+        <Title>Процес</Title>
 
         <YoutubeEmbed />
       </Container>

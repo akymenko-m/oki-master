@@ -1,17 +1,17 @@
 import styles from './Title.styled';
 
-interface IProps {
-  text?: string | undefined;
+interface IProps extends React.ComponentPropsWithoutRef<'h2'> {
+  className?: string;
 }
 
-function Title({ text }: IProps): JSX.Element {
+function Title({ className, children }: IProps): JSX.Element {
   const { TitleStyled } = styles;
 
-  return <TitleStyled>{text}</TitleStyled>;
+  return <TitleStyled className={className}>{children}</TitleStyled>;
 }
 
 Title.defaultProps = {
-  text: '',
+  className: '',
 };
 
 export default Title;

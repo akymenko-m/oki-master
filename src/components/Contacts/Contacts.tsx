@@ -29,7 +29,7 @@ function Contacts({ apiKey, mapUrl }: IProps): JSX.Element {
     <Section>
       <div id="contacts">
         <Container>
-          <Title text="Контакти" />
+          <Title>Контакти</Title>
 
           <ContentBlock>
             {isLoaded ? (

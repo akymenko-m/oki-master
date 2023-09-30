@@ -12,7 +12,7 @@ function Services(): JSX.Element {
     <Section>
       <div id="services">
         <Container>
-          <Title text="Послуги" />
+          <Title>Послуги</Title>
 
           <List>
             {ServicesData.map((el) => (

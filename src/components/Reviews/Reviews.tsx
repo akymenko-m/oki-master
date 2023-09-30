@@ -12,7 +12,7 @@ function Reviews(): JSX.Element {
     <Section>
       <div id="reviews">
         <Container>
-          <Title text="Відгуки" />
+          <Title>Відгуки</Title>
 
           <List>
             {ReviewsData.map((el) => (
