@@ -4,6 +4,7 @@ import Contacts from '../Contacts/Contacts';
 import Footer from '../Footer/Footer';
 import Gallery from '../Gallery/Gallery';
 import Header from '../Header/Header';
+import Hero from '../Hero/Hero';
 import Process from '../Process/Process';
 import Reviews from '../Reviews/Reviews';
 import Services from '../Services/Services';
@@ -16,7 +17,7 @@ function App() {
     <div>
       <ScrollToHashElement />
       <Header />
-
+      <Hero />
       <About />
       <Services />
       <Gallery />
