@@ -10,7 +10,7 @@ const TitleStyled = styled.h2`
     margin-bottom: 12px;
     font-size: ${(props) => props.theme.fontSizes.mobile.xl};
     font-weight: 400;
-    line-height: ${(props) => props.theme.lineHeight.medium};
+    line-height: 34px;
     text-align: start;
 
     & span {
