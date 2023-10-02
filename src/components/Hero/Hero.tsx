@@ -1,4 +1,5 @@
 import Container from '../App/App.styled';
+import Form from '../Form/Form';
 import Section from '../Section/Section';
 import Title from '../Title/Title';
 import styles from './Hero.styled';
@@ -15,6 +16,8 @@ function Hero(): JSX.Element {
           </Title>
 
           <SubTitle>Ремонт медичної техніки різної складності</SubTitle>
+
+          <Form />
         </ContentBlock>
       </Container>
     </Section>
