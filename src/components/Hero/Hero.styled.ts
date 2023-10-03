@@ -9,6 +9,8 @@ const ContentBlock = styled.div`
 
   @media (min-width: ${(props) => props.theme.breakpoints.l}) {
     padding-top: 48px;
+    padding-bottom: 167px;
+    position: relative;
   }
 `;
 
