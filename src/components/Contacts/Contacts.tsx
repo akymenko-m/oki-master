@@ -1,6 +1,6 @@
 import { useJsApiLoader } from '@react-google-maps/api';
 import Address from '../Address/Address';
-import Container from '../App/App.styled';
+import appStyles from '../App/App.styled';
 import Map from '../Map/Map';
 import Section from '../Section/Section';
 import Title from '../Title/Title';
@@ -19,6 +19,7 @@ interface IProps {
 
 function Contacts({ apiKey, mapUrl }: IProps): JSX.Element {
   const { ContentBlock } = styles;
+  const { Container } = appStyles;
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -29,7 +30,7 @@ function Contacts({ apiKey, mapUrl }: IProps): JSX.Element {
     <Section>
       <div id="contacts">
         <Container>
-          <Title text="Контакти" />
+          <Title>Контакти</Title>
 
           <ContentBlock>
             {isLoaded ? (

@@ -18,19 +18,26 @@ const StyledButton = styled.button`
     font-size: ${(props) => props.theme.fontSizes.mobile.small};
     color: ${(props) => props.theme.colors.accent};
     font-weight: 500;
-
     transition:
       color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    &:hover {
-      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      }
     }
 
     &:active {
       background-color: ${(props) => props.theme.colors.dark};
       color: ${(props) => props.theme.colors.white};
-      border: 1px solid ${(props) => props.theme.colors.dark};
+      border: 1px solid ${(props) => props.theme.colors.dark}${(props) => props.theme.colors.dark};
+    }
+
+    &:hover path,
+    &:focus path {
+      fill: ${(props) => props.theme.colors.accent};
     }
   }
 
@@ -40,15 +47,34 @@ const StyledButton = styled.button`
     position: absolute;
     top: 10px;
     right: 0;
+
+    &:hover path,
+    &:focus path {
+      fill: ${(props) => props.theme.colors.accent};
+    }
+  }
+
+  &.form {
+    width: 31px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: ${(props) => props.theme.colors.dark};
+    border-radius: 10px;
+    transition: background-color 250ms
+      ${(props) => props.theme.animations.cubicBezier};
+
+    &:active {
+      background-color: ${(props) => props.theme.colors.accent};
+    }
   }
 
   & path {
     transition: fill 250ms ${(props) => props.theme.animations.cubicBezier};
-  }
-
-  &:hover path,
-  &:focus path {
-    fill: ${(props) => props.theme.colors.accent};
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
@@ -63,6 +89,11 @@ const StyledButton = styled.button`
     &.features {
       width: 24px;
       height: 24px;
+    }
+
+    &.form {
+      width: 69px;
+      height: 66px;
     }
   }
 

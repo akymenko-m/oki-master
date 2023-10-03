@@ -7,6 +7,7 @@ import styles from './ServicesCard.styled';
 
 interface IProps {
   data: {
+    id: string;
     title: string;
     images: {
       mobile: string;
@@ -26,7 +27,7 @@ interface IProps {
 }
 
 function ServicesCard({ data }: IProps): JSX.Element {
-  const { title, images, description, features } = data;
+  const { title, images, description, features, id } = data;
   const {
     Subtitle,
     Item,
@@ -52,60 +53,62 @@ function ServicesCard({ data }: IProps): JSX.Element {
 
   return (
     <Item>
-      <Card>
-        <Subtitle className="mobile">{title}</Subtitle>
+      <div id={id}>
+        <Card>
+          <Subtitle className="mobile">{title}</Subtitle>
 
-        <div>
-          <ImageBlock>
-            <picture>
-              <source srcSet={images.mobile} media="(max-width: 767px)" />
-              <source srcSet={images.tablet} media="(max-width: 1279px)" />
-              <source srcSet={images.desktop} media="(min-width: 1280px)" />
-              <img src={images.mobile} alt="Тонометр" />
-            </picture>
-          </ImageBlock>
-        </div>
+          <div>
+            <ImageBlock>
+              <picture>
+                <source srcSet={images.mobile} media="(max-width: 767px)" />
+                <source srcSet={images.tablet} media="(max-width: 1279px)" />
+                <source srcSet={images.desktop} media="(min-width: 1280px)" />
+                <img src={images.mobile} alt="Тонометр" />
+              </picture>
+            </ImageBlock>
+          </div>
 
-        <Container>
-          <Content>
-            <Subtitle>{title}</Subtitle>
+          <Container>
+            <Content>
+              <Subtitle>{title}</Subtitle>
 
-            <FeaturesList>
-              {features.map((el) => (
-                <FeaturesItem key={el.title}>
-                  <div>
-                    <StyledCheckIcon />
-                  </div>
+              <FeaturesList>
+                {features.map((el) => (
+                  <FeaturesItem key={el.title}>
+                    <div>
+                      <StyledCheckIcon />
+                    </div>
 
-                  <Text>
-                    <span>{el.title}</span> {el.text}
-                  </Text>
-                </FeaturesItem>
-              ))}
-            </FeaturesList>
+                    <Text>
+                      <span>{el.title}</span> {el.text}
+                    </Text>
+                  </FeaturesItem>
+                ))}
+              </FeaturesList>
 
-            <Button className="general" onClick={handleClick} type="button">
-              Детальніше про прилад
-            </Button>
-          </Content>
+              <Button className="general" onClick={handleClick} type="button">
+                Детальніше про прилад
+              </Button>
+            </Content>
 
-          <DetailsContainer className={showDetails ? 'active' : ''}>
-            <Button className="features" onClick={handleClick} type="button">
-              <CloseIcon />
-            </Button>
+            <DetailsContainer className={showDetails ? 'active' : ''}>
+              <Button className="features" onClick={handleClick} type="button">
+                <CloseIcon />
+              </Button>
 
-            <DetailsBlock>
-              <IconBlock>
-                <description.icon />
-              </IconBlock>
+              <DetailsBlock>
+                <IconBlock>
+                  <description.icon />
+                </IconBlock>
 
-              <Details>
-                <span>{description.title}</span> {description.text}
-              </Details>
-            </DetailsBlock>
-          </DetailsContainer>
-        </Container>
-      </Card>
+                <Details>
+                  <span>{description.title}</span> {description.text}
+                </Details>
+              </DetailsBlock>
+            </DetailsContainer>
+          </Container>
+        </Card>
+      </div>
     </Item>
   );
 }

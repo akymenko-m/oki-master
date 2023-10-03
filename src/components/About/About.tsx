@@ -1,10 +1,11 @@
-import Container from '../App/App.styled';
+import appStyles from '../App/App.styled';
 import Section from '../Section/Section';
+import Title from '../Title/Title';
 import styles from './About.styled';
 
 function About(): JSX.Element {
-  const { Title, Text, Overlay, Content, TextBlock, ImageBlock, Image } =
-    styles;
+  const { Text, Overlay, Content, TextBlock, ImageBlock, Image } = styles;
+  const { Container } = appStyles;
 
   return (
     <Section>
@@ -28,7 +29,7 @@ function About(): JSX.Element {
             </ImageBlock>
 
             <TextBlock>
-              <Title>
+              <Title className="about">
                 Про <span className="accent">нас</span>
               </Title>
 

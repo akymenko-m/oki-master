@@ -1,4 +1,4 @@
-import Container from '../App/App.styled';
+import appStyles from '../App/App.styled';
 import Section from '../Section/Section';
 import Title from '../Title/Title';
 import styles from './Gallery.styled';
@@ -6,12 +6,13 @@ import ImagesData from '../../data/images';
 
 function Gallery(): JSX.Element {
   const { GalleryContainer, Item, Image } = styles;
+  const { Container } = appStyles;
 
   return (
     <Section>
       <div id="gallery">
         <Container>
-          <Title text="Галерея" />
+          <Title>Галерея</Title>
 
           <GalleryContainer>
             {ImagesData.map((el) => (

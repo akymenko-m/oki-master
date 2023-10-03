@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Container from '../App/App.styled';
+import appStyles from '../App/App.styled';
 import styles from './Header.styled';
 import Logo from '../Logo/Logo';
 import NavList from '../NavList/NavList';
@@ -8,6 +8,8 @@ import MobileMenu from '../MobileMenu/MobileMenu';
 
 function Header(): JSX.Element {
   const { HeaderWrapper, Burger, Navigation } = styles;
+  const { Container } = appStyles;
+
   const [showNavbar, setShowNavbar] = useState(false);
 
   const handleShowNavbar = () => {
