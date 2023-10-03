@@ -1,4 +1,4 @@
-import Container from '../App/App.styled';
+import appStyles from '../App/App.styled';
 import Section from '../Section/Section';
 import Title from '../Title/Title';
 import ServicesData from '../../data/services';
@@ -7,6 +7,7 @@ import styles from './Services.styled';
 
 function Services(): JSX.Element {
   const { List } = styles;
+  const { Container } = appStyles;
 
   return (
     <Section>

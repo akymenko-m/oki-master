@@ -1,4 +1,4 @@
-import Container from '../App/App.styled';
+import appStyles from '../App/App.styled';
 import Section from '../Section/Section';
 import Title from '../Title/Title';
 import ReviewsData from '../../data/reviews';
@@ -7,6 +7,7 @@ import styles from './Reviews.styled';
 
 function Reviews(): JSX.Element {
   const { List } = styles;
+  const { Container } = appStyles;
 
   return (
     <Section>

@@ -1,10 +1,11 @@
-import Container from '../App/App.styled';
+import appStyles from '../App/App.styled';
 import Section from '../Section/Section';
 import Title from '../Title/Title';
 import styles from './About.styled';
 
 function About(): JSX.Element {
   const { Text, Overlay, Content, TextBlock, ImageBlock, Image } = styles;
+  const { Container } = appStyles;
 
   return (
     <Section>

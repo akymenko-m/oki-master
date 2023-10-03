@@ -22,4 +22,16 @@ const Container = styled.div`
   }
 `;
 
-export default Container;
+const MainBlock = styled.div`
+  background: linear-gradient(67deg, #fefefe 73.5%, #bcea8f 102%);
+
+  @media (min-width: ${(props) => props.theme.breakpoints.m}) {
+    background: none;
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+    background: linear-gradient(47deg, #fefefe 70%, #bcea8f 102%);
+  }
+`;
+
+export default { Container, MainBlock };

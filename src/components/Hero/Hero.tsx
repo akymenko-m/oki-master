@@ -1,4 +1,4 @@
-import Container from '../App/App.styled';
+import appStyles from '../App/App.styled';
 import Form from '../Form/Form';
 import Section from '../Section/Section';
 import ServicesList from '../ServicesList/ServicesList';
@@ -7,6 +7,7 @@ import styles from './Hero.styled';
 
 function Hero(): JSX.Element {
   const { ContentBlock, SubTitle } = styles;
+  const { Container } = appStyles;
 
   return (
     <Section>
