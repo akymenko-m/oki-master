@@ -8,16 +8,23 @@ import Hero from '../Hero/Hero';
 import Process from '../Process/Process';
 import Reviews from '../Reviews/Reviews';
 import Services from '../Services/Services';
+import styles from './App.styled';
 
 const API_KEY = process.env.REACT_APP_API_KEY!;
 const MAP_URL = process.env.MAP_URL!;
 
 function App() {
+  const { MainBlock } = styles;
+
   return (
     <div>
       <ScrollToHashElement />
-      <Header />
-      <Hero />
+
+      <MainBlock>
+        <Header />
+        <Hero />
+      </MainBlock>
+
       <About />
       <Services />
       <Gallery />
