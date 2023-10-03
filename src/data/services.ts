@@ -1,26 +1,32 @@
 import bloodPressureMobile from '../assets/services/blood-pressure-mobile.jpg';
 import bloodPressureTablet from '../assets/services/blood-pressure-tablet.jpg';
 import bloodPressureDesktop from '../assets/services/blood-pressure-desktop.jpg';
+import bloodPressureItem from '../assets/services/blood-pressure-item.png';
 
 import nebulizerMobile from '../assets/services/nebulizer-mobile.jpg';
 import nebulizerTablet from '../assets/services/nebulizer-tablet.jpg';
 import nebulizerDesktop from '../assets/services/nebulizer-desktop.jpg';
+import nebulizerItem from '../assets/services/nebulizer-item.png';
 
 import hearingAidMobile from '../assets/services/hearing-aid-mobile.jpg';
 import hearingAidTablet from '../assets/services/hearing-aid-tablet.jpg';
 import hearingAidDesktop from '../assets/services/hearing-aid-desktop.jpg';
+import hearingAidItem from '../assets/services/hearing-aid-item.png';
 
 import oralIrrigatorMobile from '../assets/services/oral-irrigator-mobile.jpg';
 import oralIrrigatorTablet from '../assets/services/oral-irrigator-tablet.jpg';
 import oralIrrigatorDesktop from '../assets/services/oral-irrigator-desktop.jpg';
+import oralIrrigatorItem from '../assets/services/oral-irrigator-item.png';
 
 import cuffMobile from '../assets/services/cuff-mobile.jpg';
 import cuffTablet from '../assets/services/cuff-tablet.jpg';
 import cuffDesktop from '../assets/services/cuff-desktop.jpg';
+import cuffItem from '../assets/services/cuff-item.png';
 
 import oxygenConcentratorMobile from '../assets/services/oxygen-concentrator-mobile.jpg';
 import oxygenConcentratorTablet from '../assets/services/oxygen-concentrator-tablet.jpg';
 import oxygenConcentratorDesktop from '../assets/services/oxygen-concentrator-desktop.jpg';
+import oxygenConcentratorItem from '../assets/services/oxygen-concentrator-item.png';
 
 import { ReactComponent as BloodPressure } from '../assets/services/blood-pressure-icon.svg';
 import { ReactComponent as Nebulizer } from '../assets/services/nebulizer-icon.svg';
@@ -33,12 +39,14 @@ import { IServicesData } from '../interfaces/services.interface';
 
 const ServicesData: IServicesData[] = [
   {
+    id: 'blood-pressure',
     title: 'Ремонт тонометра',
     images: {
       mobile: bloodPressureMobile,
       tablet: bloodPressureTablet,
       desktop: bloodPressureDesktop,
     },
+    icon: bloodPressureItem,
     features: [
       {
         title: 'Тестування приладу –',
@@ -60,12 +68,14 @@ const ServicesData: IServicesData[] = [
     },
   },
   {
+    id: 'nebulizer',
     title: 'Ремонт небулайзера',
     images: {
       mobile: nebulizerMobile,
       tablet: nebulizerTablet,
       desktop: nebulizerDesktop,
     },
+    icon: nebulizerItem,
     features: [
       {
         title: 'Тестування приладу –',
@@ -87,12 +97,14 @@ const ServicesData: IServicesData[] = [
     },
   },
   {
+    id: 'hearing-aid',
     title: 'Ремонт слухового апарата',
     images: {
       mobile: hearingAidMobile,
       tablet: hearingAidTablet,
       desktop: hearingAidDesktop,
     },
+    icon: hearingAidItem,
     features: [
       {
         title: 'Тестування приладу –',
@@ -114,12 +126,14 @@ const ServicesData: IServicesData[] = [
     },
   },
   {
+    id: 'oral-irrigator',
     title: 'Ремонт іригатора',
     images: {
       mobile: oralIrrigatorMobile,
       tablet: oralIrrigatorTablet,
       desktop: oralIrrigatorDesktop,
     },
+    icon: oralIrrigatorItem,
     features: [
       {
         title: 'Тестування приладу –',
@@ -141,12 +155,14 @@ const ServicesData: IServicesData[] = [
     },
   },
   {
+    id: 'cuff',
     title: 'Ремонт манжети',
     images: {
       mobile: cuffMobile,
       tablet: cuffTablet,
       desktop: cuffDesktop,
     },
+    icon: cuffItem,
     features: [
       {
         title: 'Тестування приладу –',
@@ -164,12 +180,14 @@ const ServicesData: IServicesData[] = [
     },
   },
   {
+    id: 'oxygen-concentrator',
     title: 'Ремонт концентратора',
     images: {
       mobile: oxygenConcentratorMobile,
       tablet: oxygenConcentratorTablet,
       desktop: oxygenConcentratorDesktop,
     },
+    icon: oxygenConcentratorItem,
     features: [
       {
         title: 'Тестування приладу –',
