@@ -18,13 +18,15 @@ const StyledButton = styled.button`
     font-size: ${(props) => props.theme.fontSizes.mobile.small};
     color: ${(props) => props.theme.colors.accent};
     font-weight: 500;
-
     transition:
       color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    &:hover {
-      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    @media (any-hover: hover) {
+      &:hover {
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      }
     }
 
     &:active {
