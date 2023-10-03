@@ -16,7 +16,7 @@ function Services(): JSX.Element {
 
           <List>
             {ServicesData.map((el) => (
-              <ServicesCard key={el.title} data={el} />
+              <ServicesCard key={el.id} data={el} />
             ))}
           </List>
         </Container>
