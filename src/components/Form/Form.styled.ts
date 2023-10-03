@@ -3,6 +3,10 @@ import { ReactComponent as Arrow } from '../../assets/arrow-right-icon.svg';
 
 const StyledForm = styled.form`
   position: relative;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+    max-width: 674px;
+  }
 `;
 
 const Input = styled.input`

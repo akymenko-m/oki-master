@@ -41,6 +41,7 @@ const TitleStyled = styled.h2`
 
     &.hero {
       margin-bottom: 0;
+      max-width: 470px;
       font-size: ${(props) => props.theme.fontSizes.desktop.xxl};
       line-height: ${(props) => props.theme.lineHeight.xxl};
       text-align: start;
