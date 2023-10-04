@@ -3,6 +3,12 @@ import { ReactComponent as Arrow } from '../../assets/arrow-right-icon.svg';
 
 const StyledForm = styled.form`
   position: relative;
+  border-radius: 10px;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
 
   @media (min-width: ${(props) => props.theme.breakpoints.l}) {
     max-width: 674px;
@@ -20,11 +26,6 @@ const Input = styled.input`
 
   &::placeholder {
     color: ${(props) => props.theme.colors.secondary};
-  }
-
-  &:hover,
-  &:focus {
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
 
   &:focus {

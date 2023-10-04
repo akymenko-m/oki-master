@@ -1,29 +1,39 @@
-import { Link } from 'react-router-dom';
 import styles from './NavList.styled';
 
 interface IProps {
   className?: string | undefined;
+  handleShowNavbar?: () => void;
 }
 
-function NavList({ className }: IProps): JSX.Element {
-  const { List, Item } = styles;
+function NavList({ className, handleShowNavbar }: IProps): JSX.Element {
+  const { List, Item, StyledLink } = styles;
 
   return (
     <List className={className}>
       <Item className={className}>
-        <Link to="#about">Про нас</Link>
+        <StyledLink to="#about" onClick={handleShowNavbar}>
+          Про нас
+        </StyledLink>
       </Item>
       <Item className={className}>
-        <Link to="#services">Послуги</Link>
+        <StyledLink to="#services" onClick={handleShowNavbar}>
+          Послуги
+        </StyledLink>
       </Item>
       <Item className={className}>
-        <Link to="#gallery">Галерея</Link>
+        <StyledLink to="#gallery" onClick={handleShowNavbar}>
+          Галерея
+        </StyledLink>
       </Item>
       <Item className={className}>
-        <Link to="#reviews">Відгуки</Link>
+        <StyledLink to="#reviews" onClick={handleShowNavbar}>
+          Відгуки
+        </StyledLink>
       </Item>
       <Item className={className}>
-        <Link to="#contacts">Контакти</Link>
+        <StyledLink to="#contacts" onClick={handleShowNavbar}>
+          Контакти
+        </StyledLink>
       </Item>
     </List>
   );
@@ -31,6 +41,7 @@ function NavList({ className }: IProps): JSX.Element {
 
 NavList.defaultProps = {
   className: '',
+  handleShowNavbar: () => {},
 };
 
 export default NavList;
