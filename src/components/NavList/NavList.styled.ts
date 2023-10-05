@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 
 const List = styled.ul`
@@ -19,7 +20,7 @@ const List = styled.ul`
     display: flex;
     flex-direction: column;
     gap: 13px;
-    text-align: end;
+    align-items: flex-end;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
@@ -54,6 +55,53 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
+  transition:
+    background-color 250ms ${(props) => props.theme.animations.cubicBezier},
+    opacity 250ms ${(props) => props.theme.animations.cubicBezier};
+  cursor: pointer;
+
+  &.open {
+    position: relative;
+  }
+
+  &.header {
+    padding: 11px 3px;
+    width: max-content;
+    position: relative;
+    background-color: transparent;
+  }
+
+  &.header::after,
+  &.open::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 250ms ${(props) => props.theme.animations.cubicBezier};
+  }
+
+  &.header:hover::after,
+  &.header:focus::after,
+  &.open:hover::after,
+  &.open:focus::after {
+    background-color: ${(props) => props.theme.colors.accent};
+    opacity: 1;
+  }
+
+  &.header:active {
+    background-color: ${(props) => props.theme.colors['light-20']};
+    border-radius: 10px;
+
+    &::after {
+      opacity: 0;
+    }
+  }
+
   &.footer:last-of-type {
     display: none;
   }
@@ -65,7 +113,16 @@ const Item = styled.li`
     &.footer:last-of-type {
       display: block;
     }
+
+    &.header {
+      padding: 11px 14px;
+    }
   }
 `;
 
-export default { List, Item };
+const StyledLink = styled(Link)`
+  display: inline-block;
+  height: 100%;
+`;
+
+export default { List, Item, StyledLink };

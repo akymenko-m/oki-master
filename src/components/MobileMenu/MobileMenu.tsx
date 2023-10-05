@@ -26,7 +26,10 @@ function MobileMenu({ handleShowNavbar, open }: IProps): JSX.Element {
         <CloseIcon />
       </Button>
 
-      <NavList className={open ? 'open' : ''} />
+      <NavList
+        className={open ? 'open' : ''}
+        handleShowNavbar={handleShowNavbar}
+      />
     </Menu>
   );
 }

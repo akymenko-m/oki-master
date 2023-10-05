@@ -11,30 +11,12 @@ const Menu = styled.div`
   background-color: ${(props) => props.theme.colors['light-20']};
   border-radius: 10px 0px 0px 10px;
   transition:
-    width 0.5s ease-in-out,
-    opacity 0.5s ease-in-out;
+    width 500ms ease-in-out,
+    opacity 500ms ease-in-out;
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
     display: none;
   }
 `;
-
-// const CloseButton = styled.button`
-//   display: ${(props) => (props.className?.includes('open') ? 'block' : 'none')};
-//   width: 20px;
-//   height: 20px;
-//   position: absolute;
-//   top: 12px;
-//   right: 15px;
-//   background-color: transparent;
-//   & path {
-//     transition: fill 250ms ${(props) => props.theme.animations.cubicBezier};
-//   }
-
-//   &:hover path,
-//   &:focus path {
-//     fill: ${(props) => props.theme.colors.accent};
-//   }
-// `;
 
 export default { Menu };
