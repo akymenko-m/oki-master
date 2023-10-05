@@ -5,7 +5,11 @@ import ServicesList from '../ServicesList/ServicesList';
 import Title from '../Title/Title';
 import styles from './Hero.styled';
 
-function Hero(): JSX.Element {
+interface IProps {
+  handleStatusOrder: () => void;
+}
+
+function Hero({ handleStatusOrder }: IProps): JSX.Element {
   const { ContentBlock, SubTitle } = styles;
   const { Container } = appStyles;
 
@@ -19,7 +23,7 @@ function Hero(): JSX.Element {
           <SubTitle>Ремонт медичної техніки різної складності</SubTitle>
 
           <ServicesList />
-          <Form />
+          <Form handleStatusOrder={handleStatusOrder} />
         </ContentBlock>
       </Container>
     </Section>
