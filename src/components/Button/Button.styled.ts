@@ -73,6 +73,19 @@ const StyledButton = styled.button`
     }
   }
 
+  &.order {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+
+    &:hover path,
+    &:focus path {
+      fill: ${(props) => props.theme.colors.accent};
+    }
+  }
+
   &.open:hover path,
   &.open:focus path {
     fill: ${(props) => props.theme.colors.accent};
@@ -100,6 +113,13 @@ const StyledButton = styled.button`
       width: 69px;
       height: 66px;
     }
+
+    &.order {
+      width: 30px;
+      height: 30px;
+      top: 12px;
+      right: 24px;
+    }
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.l}) {
@@ -115,6 +135,11 @@ const StyledButton = styled.button`
       height: 32px;
       top: 39px;
       right: 16px;
+    }
+
+    &.order {
+      top: 18px;
+      right: 18px;
     }
   }
 `;
