@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import appStyles from '../App/App.styled';
 import styles from './Header.styled';
 import Logo from '../Logo/Logo';
@@ -7,7 +7,7 @@ import { ReactComponent as MenuIcon } from '../../assets/menu-icon.svg';
 import MobileMenu from '../MobileMenu/MobileMenu';
 
 function Header(): JSX.Element {
-  const { HeaderWrapper, Burger, Navigation } = styles;
+  const { HeaderWrapper, Burger, Navigation, Overlay } = styles;
   const { Container } = appStyles;
 
   const [showNavbar, setShowNavbar] = useState(false);
@@ -15,6 +15,15 @@ function Header(): JSX.Element {
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
   };
+
+  useEffect(() => {
+    if (showNavbar) {
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showNavbar]);
 
   return (
     <header>
@@ -30,9 +39,10 @@ function Header(): JSX.Element {
             <MenuIcon />
           </Burger>
         </HeaderWrapper>
-
-        <MobileMenu open={showNavbar} handleShowNavbar={handleShowNavbar} />
       </Container>
+
+      {showNavbar && <Overlay onClick={handleShowNavbar} />}
+      <MobileMenu open={showNavbar} handleShowNavbar={handleShowNavbar} />
     </header>
   );
 }

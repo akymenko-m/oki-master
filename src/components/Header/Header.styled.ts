@@ -16,6 +16,10 @@ const Burger = styled.button`
   height: 30px;
   background-color: transparent;
 
+  &:hover path {
+    fill: ${(props) => props.theme.colors.accent};
+  }
+
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
     display: none;
   }
@@ -30,4 +34,15 @@ const Navigation = styled.nav`
   }
 `;
 
-export default { HeaderWrapper, Burger, Navigation };
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+  z-index: 1;
+  overflow-y: scroll;
+`;
+
+export default { HeaderWrapper, Burger, Navigation, Overlay };

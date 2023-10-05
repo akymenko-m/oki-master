@@ -73,6 +73,11 @@ const StyledButton = styled.button`
     }
   }
 
+  &.open:hover path,
+  &.open:focus path {
+    fill: ${(props) => props.theme.colors.accent};
+  }
+
   & path {
     transition: fill 250ms ${(props) => props.theme.animations.cubicBezier};
   }
