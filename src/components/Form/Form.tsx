@@ -1,9 +1,12 @@
 import { useState } from 'react';
-
 import styles from './Form.styled';
 import Button from '../Button/Button';
 
-function Form(): JSX.Element {
+interface IProps {
+  handleStatusOrder: () => void;
+}
+
+function Form({ handleStatusOrder }: IProps): JSX.Element {
   const { StyledForm, Input, StyledArrow } = styles;
 
   const [formData, setFormData] = useState('');
@@ -18,6 +21,8 @@ function Form(): JSX.Element {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    handleStatusOrder();
 
     resetFormData();
   };

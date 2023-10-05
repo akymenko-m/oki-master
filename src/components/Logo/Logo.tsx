@@ -8,7 +8,7 @@ function Logo({ className }: IProps): JSX.Element {
   const { StyledLogo, Link } = styles;
 
   return (
-    <Link href="/">
+    <Link href="/" className={className}>
       <StyledLogo className={className} />
     </Link>
   );
