@@ -7,7 +7,6 @@ const List = styled.ul`
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
     gap: 40px;
-
     &.footer {
       gap: 20px;
     }
