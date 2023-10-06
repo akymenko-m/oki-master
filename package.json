@@ -10,6 +10,18 @@
     "preview": "vite preview",
     "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx,jsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "**/*.{ts,tsx}": "eslint --cache --fix"
+  },
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -44,12 +56,5 @@
     "prettier": "^3.0.2",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx,jsx}": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "*.{ts,tsx}": "eslint --cache --fix"
   }
 }
