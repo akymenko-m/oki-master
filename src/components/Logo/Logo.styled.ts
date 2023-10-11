@@ -33,6 +33,10 @@ const StyledLogo = styled(Logo)`
     fill: ${(props) => props.theme.colors.accent};
   }
 
+  &.login {
+    fill: ${(props) => props.theme.colors.accent};
+  }
+
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
     &.header {
       width: 73px;
@@ -50,6 +54,11 @@ const StyledLogo = styled(Logo)`
       top: 12px;
       left: 24px;
     }
+
+    &.login {
+      width: 73px;
+      height: 70px;
+    }
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.l}) {
@@ -61,6 +70,11 @@ const StyledLogo = styled(Logo)`
     &.order {
       top: 28px;
       left: 41px;
+    }
+
+    &.login {
+      width: 140px;
+      height: 106px;
     }
   }
 `;

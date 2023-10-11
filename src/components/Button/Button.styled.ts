@@ -32,7 +32,7 @@ const StyledButton = styled.button`
     &:active {
       background-color: ${(props) => props.theme.colors.dark};
       color: ${(props) => props.theme.colors.white};
-      border: 1px solid ${(props) => props.theme.colors.dark}${(props) => props.theme.colors.dark};
+      border: 1px solid ${(props) => props.theme.colors.dark};
     }
 
     &:hover path,
@@ -83,6 +83,29 @@ const StyledButton = styled.button`
     &:hover path,
     &:focus path {
       fill: ${(props) => props.theme.colors.accent};
+    }
+  }
+
+  &.login {
+    width: 175px;
+    padding: 4px 30px;
+    border-radius: 10px;
+    border: 1px solid ${(props) => props.theme.colors.dark};
+    background-color: ${(props) => props.theme.colors.dark};
+    color: ${(props) => props.theme.colors.white};
+    line-height: ${(props) => props.theme.lineHeight.small};
+    font-weight: 500;
+    transition:
+      background-color 1250ms ${(props) => props.theme.animations.cubicBezier},
+      color 1250ms ${(props) => props.theme.animations.cubicBezier};
+
+    &:hover {
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    &:active {
+      background-color: ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.dark};
     }
   }
 
@@ -140,6 +163,11 @@ const StyledButton = styled.button`
     &.order {
       top: 18px;
       right: 18px;
+    }
+
+    &.login {
+      width: 246px;
+      padding: 10px 50px;
     }
   }
 `;
