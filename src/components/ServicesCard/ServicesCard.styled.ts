@@ -170,6 +170,7 @@ const Text = styled.p`
 
 const StyledCheckIcon = styled(CheckIcon)`
   width: 24px;
+  fill: ${(props) => props.theme.colors.accent};
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
     width: 48px;
