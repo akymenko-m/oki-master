@@ -19,8 +19,8 @@ function YoutubeEmbed(): JSX.Element {
 
   const videoPlayerRef = useRef(null);
 
-  const [videoState, setVideoState] = useState(
-    storage.load('video-progress') ?? DEFAULT_STATE
+  const [videoState, setVideoState] = useState<IYoutubeEmbed>(
+    (storage.load('video-progress') as IYoutubeEmbed) ?? DEFAULT_STATE
   );
 
   const { seeking, playing, playedSeconds } = videoState;
