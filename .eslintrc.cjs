@@ -26,6 +26,13 @@ module.exports = {
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     '@emotion/jsx-import': 'error',
     '@emotion/pkg-renaming': 'error',
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['state'],
+      },
+    ],
   },
 
   // ignorePatterns: ['.eslintrc.cjs', 'vite.config.ts', 'src'],
