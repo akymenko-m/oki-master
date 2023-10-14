@@ -8,6 +8,7 @@ const theme = Object.freeze({
     dark: '#245D19',
     light: '#BCEA8F',
     'light-20': '#E6F5D9',
+    grey: '#7B7B7B',
     mainBackground: [
       'linear-gradient(67.46deg, #FEFEFE 68.58%, #BCEA8F 102.14%)',
     ],

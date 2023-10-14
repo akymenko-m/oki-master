@@ -11,6 +11,7 @@ declare module '@emotion/react' {
       dark: string;
       light: string;
       'light-20': string;
+      grey: string;
       mainBackground: string[];
       aboutUsBackground: string[];
       iconBackground: string[];
