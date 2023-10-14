@@ -96,8 +96,8 @@ const StyledButton = styled.button`
     line-height: ${(props) => props.theme.lineHeight.small};
     font-weight: 500;
     transition:
-      background-color 1250ms ${(props) => props.theme.animations.cubicBezier},
-      color 1250ms ${(props) => props.theme.animations.cubicBezier};
+      background-color 250ms ${(props) => props.theme.animations.cubicBezier},
+      color 250ms ${(props) => props.theme.animations.cubicBezier};
 
     &:hover {
       box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -106,6 +106,31 @@ const StyledButton = styled.button`
     &:active {
       background-color: ${(props) => props.theme.colors.white};
       color: ${(props) => props.theme.colors.dark};
+    }
+  }
+
+  &.add {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 38px;
+    right: 15px;
+    border-radius: 50%;
+    background-color: ${(props) => props.theme.colors['light-20']};
+    transition: background-color 250ms
+      ${(props) => props.theme.animations.cubicBezier};
+
+    &:hover,
+    &:focus {
+      box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25);
+      outline: none;
+    }
+
+    &:active {
+      background-color: ${(props) => props.theme.colors.light};
     }
   }
 
