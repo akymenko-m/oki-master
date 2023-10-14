@@ -13,7 +13,7 @@ function Footer(): JSX.Element {
     <Section>
       <Container>
         <FooterContainer>
-          <Logo className="footer" />
+          <Logo className="footer" href="#" />
 
           <ContentBlock>
             <NavList className="footer" />
