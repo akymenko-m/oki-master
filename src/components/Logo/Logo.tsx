@@ -2,13 +2,14 @@ import styles from './Logo.styled';
 
 interface IProps {
   className?: string | undefined;
+  href?: string;
 }
 
-function Logo({ className }: IProps): JSX.Element {
+function Logo({ className, href }: IProps): JSX.Element {
   const { StyledLogo, Link } = styles;
 
   return (
-    <Link href="/" className={className}>
+    <Link className={className} href={href}>
       <StyledLogo className={className} />
     </Link>
   );
@@ -16,6 +17,7 @@ function Logo({ className }: IProps): JSX.Element {
 
 Logo.defaultProps = {
   className: '',
+  href: undefined,
 };
 
 export default Logo;
