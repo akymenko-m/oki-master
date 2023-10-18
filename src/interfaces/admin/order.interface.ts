@@ -1,7 +1,7 @@
-export interface IItem {
+export interface IOrder {
   _id?: string;
   orderNumber: string;
-  date: string;
+  date: Date;
   name: string;
   phone: string;
   repairType: string;
