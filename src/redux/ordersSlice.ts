@@ -1,17 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addOrder, deleteOrder, fetchOrders, updateOrder } from './operations';
+import {
+  addOrder,
+  deleteOrder,
+  fetchByQuery,
+  fetchOrders,
+  updateOrder,
+} from './operations';
 import { IState } from '../interfaces/admin/state.interface';
 
 const initialState: IState = {
   items: [],
+  currentOrder: null,
   isLoading: false,
-  error: undefined,
+  error: '',
 };
 
 const ordersSlice = createSlice({
   name: 'orders',
   initialState,
-  reducers: {},
+  reducers: {
+    setCurrentOrder(state, action) {
+      state.currentOrder = action.payload;
+    },
+  },
 
   extraReducers: (builder) =>
     builder
@@ -24,6 +35,18 @@ const ordersSlice = createSlice({
         state.items = action.payload;
       })
       .addCase(fetchOrders.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(fetchByQuery.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(fetchByQuery.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.items = action.payload;
+      })
+      .addCase(fetchByQuery.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
       })
@@ -68,6 +91,8 @@ const ordersSlice = createSlice({
         state.isLoading = false;
       }),
 });
+
+export const { setCurrentOrder } = ordersSlice.actions;
 
 const orderReducer = ordersSlice.reducer;
 
