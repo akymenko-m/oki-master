@@ -1,4 +1,4 @@
-import styles from './PaginationComponent.styles';
+import styles from './Pagination.styled';
 
 interface IProps {
   setCurrentPage: (arg0: number) => void;

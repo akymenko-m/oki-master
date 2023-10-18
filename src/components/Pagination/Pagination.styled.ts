@@ -4,6 +4,7 @@ import Pagination from 'rc-pagination';
 const Container = styled.div`
   margin: 0 auto;
   margin-top: 18px;
+  text-align: center;
 `;
 
 const StyledPagination = styled(Pagination)`
@@ -20,7 +21,7 @@ const StyledPagination = styled(Pagination)`
     display: inline-block;
     height: 28px;
     margin-right: 8px;
-    line-height: 28px - 2px;
+    line-height: 26px;
     vertical-align: middle;
   }
 
@@ -29,12 +30,12 @@ const StyledPagination = styled(Pagination)`
     min-width: 28px;
     height: 28px;
     margin-right: 8px;
-    line-height: 28px - 2px;
+    line-height: 26px;
     text-align: center;
     vertical-align: middle;
     list-style: none;
-    background-color: #fff;
-    border: 1px solid #d9d9d9;
+    background-color: ${(props) => props.theme.colors.white};
+    border: 1px solid ${(props) => props.theme.colors.secondary};
     border-radius: 2px;
     outline: 0;
     cursor: pointer;
@@ -43,7 +44,6 @@ const StyledPagination = styled(Pagination)`
     & a {
       display: block;
       padding: 0 6px;
-      color: rgba(0, 0, 0, 0.85);
       transition: none;
 
       &:hover {
@@ -53,31 +53,33 @@ const StyledPagination = styled(Pagination)`
 
     &:focus,
     &:hover {
-      border-color: #1890ff;
-      transition: all 0.3s;
+      border-color: ${(props) => props.theme.colors.accent};
+      transition:
+        color 250ms ${(props) => props.theme.animations.cubicBezier},
+        border-color 250ms ${(props) => props.theme.animations.cubicBezier};
       a {
-        color: #1890ff;
+        color: ${(props) => props.theme.colors.accent};
       }
     }
   }
 
-  & .rc-pagination-active {
+  & .rc-pagination-item-active {
     font-weight: 500;
-    background: #fff;
-    border-color: #1890ff;
+    background: ${(props) => props.theme.colors.white};
+    border-color: ${(props) => props.theme.colors.accent};
 
     & a {
-      color: #1890ff;
+      color: ${(props) => props.theme.colors.accent};
     }
 
     &:focus,
     &:hover {
-      border-color: #40a9ff;
+      border-color: ${(props) => props.theme.colors.accent};
     }
 
     &:focus a,
     &:hover a {
-      color: #40a9ff;
+      color: ${(props) => props.theme.colors.accent};
     }
   }
 
@@ -89,7 +91,6 @@ const StyledPagination = styled(Pagination)`
       background: transparent;
       border: none;
       cursor: pointer;
-      color: #666;
     }
 
     & button:after {
@@ -111,8 +112,7 @@ const StyledPagination = styled(Pagination)`
     display: inline-block;
     min-width: 28px;
     height: 28px;
-    color: rgba(0, 0, 0, 0.85);
-    line-height: 28px;
+    line-height: ${(props) => props.theme.lineHeight.small};
     text-align: center;
     vertical-align: middle;
     list-style: none;
@@ -132,13 +132,13 @@ const StyledPagination = styled(Pagination)`
     }
 
     &:hover button {
-      border-color: #40a9ff;
+      border-color: ${(props) => props.theme.colors.accent};
     }
 
     &:focus .rc-pagination-item-link,
     &:hover .rc-pagination-item-link {
-      color: #1890ff;
-      border-color: #1890ff;
+      color: ${(props) => props.theme.colors.accent};
+      border-color: ${(props) => props.theme.colors.accent};
     }
   }
 
@@ -148,11 +148,14 @@ const StyledPagination = styled(Pagination)`
     height: 100%;
     font-size: 12px;
     text-align: center;
-    background-color: #fff;
-    border: 1px solid #d9d9d9;
+    background-color: ${(props) => props.theme.colors.white};
+    border: 1px solid ${(props) => props.theme.colors.secondary};
     border-radius: 2px;
     outline: none;
-    transition: all 0.3s;
+    transition:
+      color 250ms ${(props) => props.theme.animations.cubicBezier},
+      border-color 250ms ${(props) => props.theme.animations.cubicBezier},
+      background-color 250ms ${(props) => props.theme.animations.cubicBezier};
   }
 
   & .rc-pagination-prev button:after {
@@ -171,8 +174,7 @@ const StyledPagination = styled(Pagination)`
     &:focus {
       cursor: not-allowed;
       & .rc-pagination-item-link {
-        color: fade(#000, 25%);
-        border-color: #d9d9d9;
+        border-color: ${(props) => props.theme.colors.secondary};
         cursor: not-allowed;
       }
     }
@@ -197,7 +199,7 @@ const StyledPagination = styled(Pagination)`
   & .rc-pagination-quick-jumper {
     display: inline-block;
     height: 28px;
-    line-height: 28px;
+    line-height: ${(props) => props.theme.lineHeight.small};
     vertical-align: top;
 
     & input {
@@ -234,14 +236,15 @@ const StyledPagination = styled(Pagination)`
       margin-right: 8px;
       padding: 0 6px;
       text-align: center;
-      background-color: #fff;
-      border: 1px solid #d9d9d9;
+      background-color: ${(props) => props.theme.colors.white};
+      border: 1px solid ${(props) => props.theme.colors.secondary};
       border-radius: 2px;
       outline: none;
-      transition: border-color 0.3s;
+      transition: border-color 250ms
+        ${(props) => props.theme.animations.cubicBezier};
 
       &:hover {
-        border-color: #1890ff;
+        border-color: ${(props) => props.theme.colors.accent};
       }
     }
   }
@@ -251,7 +254,7 @@ const StyledPagination = styled(Pagination)`
 
     & .rc-pagination-item {
       background: hsv(0, 0, 96%);
-      border-color: #d9d9d9;
+      border-color: ${(props) => props.theme.colors.secondary};
       cursor: not-allowed;
 
       a {
@@ -261,11 +264,10 @@ const StyledPagination = styled(Pagination)`
         cursor: not-allowed;
       }
 
-      & .rc-pagination-active {
-        background: darken(hsv(0, 0, 96%), 10%);
+      & .rc-pagination-item-active {
         border-color: transparent;
         a {
-          color: #fff;
+          color: ${(props) => props.theme.colors.white};
         }
       }
     }
@@ -274,7 +276,7 @@ const StyledPagination = styled(Pagination)`
   & .rc-pagination-item-link {
     color: fade(#000, 25%);
     background: hsv(0, 0, 96%);
-    border-color: #d9d9d9;
+    border-color: ${(props) => props.theme.colors.secondary};
     cursor: not-allowed;
   }
 
