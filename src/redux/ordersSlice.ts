@@ -4,12 +4,21 @@ import {
   deleteOrder,
   fetchByQuery,
   fetchOrders,
+  getOrder,
   updateOrder,
-} from './operations';
+} from './ordersOperations';
 import { IState } from '../interfaces/admin/state.interface';
+import {
+  addToArchive,
+  deleteArchivedOrder,
+  fetchArchiveByQuery,
+  fetchArchivedOrders,
+} from './archivedOrdersOperations';
 
 const initialState: IState = {
+  total: null,
   items: [],
+  archivedOrders: [],
   currentOrder: null,
   isLoading: false,
   error: '',
@@ -32,7 +41,8 @@ const ordersSlice = createSlice({
       })
       .addCase(fetchOrders.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.items = action.payload;
+        state.items = action.payload.orders;
+        state.total = action.payload.total;
       })
       .addCase(fetchOrders.rejected, (state, action) => {
         state.isLoading = false;
@@ -45,6 +55,7 @@ const ordersSlice = createSlice({
       .addCase(fetchByQuery.fulfilled, (state, action) => {
         state.isLoading = false;
         state.items = action.payload;
+        state.total = null;
       })
       .addCase(fetchByQuery.rejected, (state, action) => {
         state.isLoading = false;
@@ -87,6 +98,69 @@ const ordersSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(updateOrder.rejected, (state, action) => {
+        state.error = action.error.message;
+        state.isLoading = false;
+      })
+      .addCase(fetchArchivedOrders.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(fetchArchivedOrders.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.archivedOrders = action.payload.orders;
+        state.total = action.payload.total;
+      })
+      .addCase(fetchArchivedOrders.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(addToArchive.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(addToArchive.fulfilled, (state, action) => {
+        state.archivedOrders = [...state.items, action.payload];
+        state.isLoading = false;
+      })
+      .addCase(addToArchive.rejected, (state, action) => {
+        state.error = action.error.message;
+        state.isLoading = false;
+      })
+      .addCase(fetchArchiveByQuery.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(fetchArchiveByQuery.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.archivedOrders = action.payload;
+        state.total = null;
+      })
+      .addCase(fetchArchiveByQuery.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(deleteArchivedOrder.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(deleteArchivedOrder.fulfilled, (state, action) => {
+        state.archivedOrders = state.items.filter(
+          (item) => item.orderNumber !== action.payload.orderNumber
+        );
+        state.isLoading = false;
+      })
+      .addCase(deleteArchivedOrder.rejected, (state, action) => {
+        state.error = action.error.message;
+        state.isLoading = false;
+      })
+      .addCase(getOrder.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(getOrder.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(getOrder.rejected, (state, action) => {
         state.error = action.error.message;
         state.isLoading = false;
       }),
