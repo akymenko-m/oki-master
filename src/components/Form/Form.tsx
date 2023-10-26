@@ -1,15 +1,21 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import styles from './Form.styled';
 import Button from '../Button/Button';
+import { useAppDispatch } from '../../hooks/hooks';
+import { getOrder } from '../../redux/ordersOperations';
+import { IItem } from '../../interfaces/admin/item.interface';
 
 interface IProps {
   handleStatusOrder: () => void;
+  setOrderData: React.Dispatch<React.SetStateAction<IItem | undefined>>;
 }
 
-function Form({ handleStatusOrder }: IProps): JSX.Element {
+function Form({ handleStatusOrder, setOrderData }: IProps): JSX.Element {
   const { StyledForm, Input, StyledArrow } = styles;
 
   const [formData, setFormData] = useState('');
+  const dispatch = useAppDispatch();
 
   const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData(event.target.value);
@@ -24,6 +30,17 @@ function Form({ handleStatusOrder }: IProps): JSX.Element {
 
     handleStatusOrder();
 
+    dispatch(getOrder(formData))
+      .unwrap()
+      .then((response: IItem) => {
+        setOrderData(response);
+      })
+      .catch((error) => {
+        if (error) {
+          toast.error('Не знайдено за вашим запитом');
+        }
+      });
+
     resetFormData();
   };
 
@@ -31,10 +48,12 @@ function Form({ handleStatusOrder }: IProps): JSX.Element {
     <StyledForm onSubmit={handleSubmit}>
       <Input
         type="text"
-        placeholder="Введіть номер замовлення"
+        placeholder="Номер замовлення чи телефону"
         name="order"
         value={formData}
         required
+        maxLength={10}
+        minLength={10}
         onChange={inputChange}
       />
       <Button className="form" type="submit">

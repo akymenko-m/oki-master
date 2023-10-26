@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import Loader from '../Loader/Loader';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LazyHomePage = lazy(() => import('../../pages/Home/HomePage'));
 const LazyAdminPage = lazy(() => import('../../pages/Admin/AdminPage'));
