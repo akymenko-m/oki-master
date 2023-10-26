@@ -9,4 +9,6 @@ export interface IItem {
   completeSet?: string;
   comment?: string;
   status: 'accepted' | 'atWork' | 'done' | undefined;
+  createdAt?: string;
+  updatedAt?: string;
 }
