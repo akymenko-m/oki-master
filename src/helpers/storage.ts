@@ -3,7 +3,7 @@ import { IYoutubeEmbed } from '../components/YoutubeEmbed/YoutubeEmbed.interface
 
 type LocalStorageKey = string;
 
-const save = (key: LocalStorageKey, value: IYoutubeEmbed): void => {
+const save = (key: LocalStorageKey, value: IYoutubeEmbed | boolean): void => {
   try {
     const serializedState = JSON.stringify(value);
     localStorage.setItem(key, serializedState);
@@ -12,7 +12,7 @@ const save = (key: LocalStorageKey, value: IYoutubeEmbed): void => {
   }
 };
 
-const load = (key: LocalStorageKey): IYoutubeEmbed | undefined => {
+const load = (key: LocalStorageKey): IYoutubeEmbed | boolean | undefined => {
   try {
     const serializedState = localStorage.getItem(key);
     return serializedState === null ? undefined : JSON.parse(serializedState);

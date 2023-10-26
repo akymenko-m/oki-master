@@ -1,3 +1,4 @@
+import { IItem } from '../../interfaces/admin/item.interface';
 import appStyles from '../App/App.styled';
 import Form from '../Form/Form';
 import Section from '../Section/Section';
@@ -7,9 +8,10 @@ import styles from './Hero.styled';
 
 interface IProps {
   handleStatusOrder: () => void;
+  setOrderData: React.Dispatch<React.SetStateAction<IItem | undefined>>;
 }
 
-function Hero({ handleStatusOrder }: IProps): JSX.Element {
+function Hero({ handleStatusOrder, setOrderData }: IProps): JSX.Element {
   const { ContentBlock, SubTitle } = styles;
   const { Container } = appStyles;
 
@@ -23,7 +25,10 @@ function Hero({ handleStatusOrder }: IProps): JSX.Element {
           <SubTitle>Ремонт медичної техніки різної складності</SubTitle>
 
           <ServicesList />
-          <Form handleStatusOrder={handleStatusOrder} />
+          <Form
+            handleStatusOrder={handleStatusOrder}
+            setOrderData={setOrderData}
+          />
         </ContentBlock>
       </Container>
     </Section>

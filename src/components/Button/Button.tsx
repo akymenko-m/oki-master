@@ -1,7 +1,7 @@
 import styles from './Button.styled';
 
 interface IProps extends React.ComponentPropsWithoutRef<'button'> {
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void | Promise<void>;
   type: 'button' | 'submit';
 }
 

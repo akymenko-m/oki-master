@@ -11,7 +11,7 @@ const StyledButton = styled.button`
   &.general {
     width: 100%;
     height: 32px;
-    padding: 1px 62px;
+    padding: 1px 42px;
     border-radius: 10px;
     border: 1px solid ${(props) => props.theme.colors.accent};
     line-height: ${(props) => props.theme.lineHeight.small};
@@ -32,7 +32,7 @@ const StyledButton = styled.button`
     &:active {
       background-color: ${(props) => props.theme.colors.dark};
       color: ${(props) => props.theme.colors.white};
-      border: 1px solid ${(props) => props.theme.colors.dark}${(props) => props.theme.colors.dark};
+      border: 1px solid ${(props) => props.theme.colors.dark};
     }
 
     &:hover path,
@@ -73,7 +73,7 @@ const StyledButton = styled.button`
     }
   }
 
-  &.order {
+  &.order-status {
     width: 16px;
     height: 16px;
     position: absolute;
@@ -83,6 +83,105 @@ const StyledButton = styled.button`
     &:hover path,
     &:focus path {
       fill: ${(props) => props.theme.colors.accent};
+    }
+  }
+
+  &.login {
+    width: 175px;
+    padding: 4px 30px;
+    border-radius: 10px;
+    border: 1px solid ${(props) => props.theme.colors.dark};
+    background-color: ${(props) => props.theme.colors.dark};
+    color: ${(props) => props.theme.colors.white};
+    line-height: ${(props) => props.theme.lineHeight.small};
+    font-weight: 500;
+    transition:
+      background-color 250ms ${(props) => props.theme.animations.cubicBezier},
+      color 250ms ${(props) => props.theme.animations.cubicBezier};
+
+    &:hover {
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    &:active {
+      background-color: ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.dark};
+    }
+  }
+
+  &.add {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 38px;
+    right: 15px;
+    border-radius: 50%;
+    background-color: ${(props) => props.theme.colors['light-20']};
+    transition: background-color 250ms
+      ${(props) => props.theme.animations.cubicBezier};
+
+    &:hover,
+    &:focus {
+      box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.25);
+      outline: none;
+    }
+
+    &:active {
+      background-color: ${(props) => props.theme.colors.light};
+    }
+  }
+
+  &.order {
+    top: 0;
+    right: 0;
+  }
+
+  &.order-form {
+    padding: 1px 50px;
+    height: 32px;
+    border-radius: 10px;
+    border: 1px solid ${(props) => props.theme.colors.dark};
+    background-color: ${(props) => props.theme.colors.dark};
+    color: ${(props) => props.theme.colors.white};
+    line-height: ${(props) => props.theme.lineHeight.small};
+    font-weight: 500;
+    transition:
+      background-color 250ms ${(props) => props.theme.animations.cubicBezier},
+      color 250ms ${(props) => props.theme.animations.cubicBezier};
+
+    &.update {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    &:active {
+      background-color: ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.dark};
+    }
+  }
+
+  &.archive {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    & svg {
+      transition: stroke 250ms ${(props) => props.theme.animations.cubicBezier};
+    }
+
+    &:hover svg,
+    &:focus svg {
+      stroke: ${(props) => props.theme.colors.dark};
     }
   }
 
@@ -98,7 +197,7 @@ const StyledButton = styled.button`
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
     &.general {
       height: 53px;
-      padding: 12px 65px;
+      padding: 12px 60px;
       line-height: ${(props) => props.theme.lineHeight.small};
       font-size: ${(props) => props.theme.fontSizes.desktop.small};
       border: 2px solid ${(props) => props.theme.colors.accent};
@@ -125,7 +224,7 @@ const StyledButton = styled.button`
   @media (min-width: ${(props) => props.theme.breakpoints.l}) {
     &.general {
       width: 312px;
-      padding: 2px 16px;
+      padding: 2px 13px;
       font-size: ${(props) => props.theme.fontSizes.desktop.medium};
       line-height: ${(props) => props.theme.lineHeight.xl};
     }
@@ -140,6 +239,11 @@ const StyledButton = styled.button`
     &.order {
       top: 18px;
       right: 18px;
+    }
+
+    &.login {
+      width: 246px;
+      padding: 10px 50px;
     }
   }
 `;

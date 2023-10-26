@@ -3,11 +3,19 @@ import { ReactComponent as Logo } from '../../assets/logo-icon.svg';
 
 const Link = styled.a`
   display: inline-block;
-  height: 100%;
+  height: auto;
   line-height: 0;
 
   &.order {
-    display: block;
+    position: absolute;
+    top: 3px;
+    left: 10px;
+  }
+
+  &.admin {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 `;
 
@@ -26,10 +34,16 @@ const StyledLogo = styled(Logo)`
   &.order {
     width: 32px;
     height: 25px;
-    display: block;
-    position: absolute;
-    top: 3px;
-    left: 10px;
+    fill: ${(props) => props.theme.colors.accent};
+  }
+
+  &.login {
+    fill: ${(props) => props.theme.colors.accent};
+  }
+
+  &.admin {
+    width: 32px;
+    height: 25px;
     fill: ${(props) => props.theme.colors.accent};
   }
 
@@ -50,6 +64,11 @@ const StyledLogo = styled(Logo)`
       top: 12px;
       left: 24px;
     }
+
+    &.login {
+      width: 73px;
+      height: 70px;
+    }
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.l}) {
@@ -61,6 +80,11 @@ const StyledLogo = styled(Logo)`
     &.order {
       top: 28px;
       left: 41px;
+    }
+
+    &.login {
+      width: 140px;
+      height: 106px;
     }
   }
 `;

@@ -30,7 +30,7 @@ function Header(): JSX.Element {
       <Container>
         <HeaderWrapper>
           <Navigation>
-            <Logo className="header" />
+            <Logo className="header" href="/" />
 
             <NavList className="header" />
           </Navigation>
