@@ -18,7 +18,6 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: ['./tsconfig.json', './tsconfig.node.json'],
-    // project: './tsconfig.json',
   },
   plugins: ['react', '@typescript-eslint', '@emotion'],
   rules: {
@@ -33,6 +32,25 @@ module.exports = {
         ignorePropertyModificationsFor: ['state'],
       },
     ],
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
+    'jsx-a11y/label-has-for': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
+    'no-underscore-dangle': ['error', { allow: ['_id'] }],
+    '@typescript-eslint/naming-convention': 'off',
+    'react/jsx-no-useless-fragment': [2, { allowExpressions: true }],
   },
 
   // ignorePatterns: ['.eslintrc.cjs', 'vite.config.ts', 'src'],
