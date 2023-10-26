@@ -1,16 +1,11 @@
-import { useAppDispatch } from '../../hooks/hooks';
-import { fetchByQuery } from '../../redux/operations';
 import styles from './Filter.styled';
 
-function Filter() {
+interface IProps {
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+function Filter({ onChange }: IProps) {
   const { FilterInput, StyledSearchIcon, FilterBlock } = styles;
-
-  const dispatch = useAppDispatch();
-
-  const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const query = event.target.value;
-    dispatch(fetchByQuery(query));
-  };
 
   return (
     <FilterBlock>
@@ -18,7 +13,7 @@ function Filter() {
         type="text"
         name="filter"
         placeholder="Пошук"
-        onChange={inputChange}
+        onChange={onChange}
       />
       <StyledSearchIcon />
     </FilterBlock>

@@ -3,13 +3,20 @@ import styles from './OrderItem.styled';
 
 interface IProps {
   order: IItem;
+  getOrderDetails: (arg0: IItem) => void;
+  toogleOrderDetails: () => void;
 }
 
-function OrderItem({ order }: IProps) {
+function OrderItem({ order, getOrderDetails, toogleOrderDetails }: IProps) {
   const { Item, Text } = styles;
 
+  const handleClick = () => {
+    getOrderDetails(order);
+    toogleOrderDetails();
+  };
+
   return (
-    <Item>
+    <Item onClick={handleClick}>
       <Text className="bold">{order.orderNumber}</Text>
       <Text>{order.name}</Text>
       <Text>{order.phone}</Text>

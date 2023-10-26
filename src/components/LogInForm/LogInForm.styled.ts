@@ -49,6 +49,7 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
+    border-bottom: 2px solid ${(props) => props.theme.colors.accent};
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
