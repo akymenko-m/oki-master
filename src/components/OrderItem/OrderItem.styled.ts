@@ -7,6 +7,16 @@ const Item = styled.li`
   gap: 8px;
   border-radius: 10px;
   border: 1px solid ${(props) => props.theme.colors.light};
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  &:active {
+    border: 1px solid ${(props) => props.theme.colors.accent};
+  }
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
   }
