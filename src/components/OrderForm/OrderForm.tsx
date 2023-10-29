@@ -13,6 +13,7 @@ interface IProps {
   currentOrder?: IItem | null;
   toggleOrderDetails?: () => void;
   isArchived: boolean;
+  className?: string;
 }
 
 function OrderForm({
@@ -20,6 +21,7 @@ function OrderForm({
   currentOrder,
   toggleOrderDetails,
   isArchived,
+  className,
 }: IProps): JSX.Element {
   const {
     Form,
@@ -109,7 +111,7 @@ function OrderForm({
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className={className}>
       <InputsContainer>
         <InputBlock>
           <Label htmlFor="orderNumber">№ замовлення</Label>
@@ -251,6 +253,7 @@ OrderForm.defaultProps = {
   createNewOrder: () => {},
   currentOrder: undefined,
   toggleOrderDetails: () => {},
+  className: '',
 };
 
 export default OrderForm;

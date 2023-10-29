@@ -1,14 +1,22 @@
 import styled from '@emotion/styled';
 
 const Form = styled.form`
+  padding: 0 15px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
+    padding: 20px 41px 0 41px;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+    padding: 20px 19px 0 19px;
+    gap: 20px;
+
+    &.order {
+      padding-bottom: 18px;
+    }
   }
 `;
 
@@ -17,23 +25,20 @@ const InputsContainer = styled.div`
   flex-direction: column;
   gap: 8px;
 
-  @media (min-width: ${(props) => props.theme.breakpoints.m}) {
-  }
-
   @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+    gap: 4px;
   }
 `;
 
 const InputBlock = styled.div`
   padding: 8px 0;
   display: flex;
+  align-items: center;
   position: relative;
   border-bottom: 1px solid ${(props) => props.theme.colors.light};
 
-  @media (min-width: ${(props) => props.theme.breakpoints.m}) {
-  }
-
   @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+    padding: 8px;
   }
 `;
 
@@ -41,10 +46,17 @@ const InputsBlock = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 `;
 
 const InputStatusBlock = styled.div`
   display: flex;
+  align-items: center;
   gap: 5px;
 `;
 
@@ -52,15 +64,23 @@ const Label = styled.label`
   min-width: 135px;
   font-weight: 500;
   line-height: ${(props) => props.theme.lineHeight.xs};
+  cursor: pointer;
 
   &.status {
     min-width: 100px;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
+    min-width: 200px;
+    font-size: ${(props) => props.theme.fontSizes.desktop.xs};
+    line-height: 24px;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+    min-width: 220px;
+    font-size: ${(props) => props.theme.fontSizes.desktop.small};
+    font-weight: 600;
+    line-height: 30px;
   }
 `;
 
@@ -79,9 +99,15 @@ const Input = styled.input`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
+    width: 100%;
+    font-size: ${(props) => props.theme.fontSizes.desktop.xs};
+    line-height: 24px;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+    height: 46px;
+    font-size: ${(props) => props.theme.fontSizes.desktop.small};
+    line-height: 30px;
   }
 `;
 
@@ -121,6 +147,11 @@ const Checkbox = styled.input`
       -moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75);
       box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75);
     }
+
+    @media (min-width: ${(props) => props.theme.breakpoints.m}) {
+      width: 20px;
+      height: 20px;
+    }
   }
 `;
 
@@ -129,9 +160,16 @@ const Text = styled.p`
   font-weight: 500;
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
+    min-width: 200px;
+    font-size: ${(props) => props.theme.fontSizes.desktop.xs};
+    line-height: 24px;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+    min-width: 220px;
+    font-size: ${(props) => props.theme.fontSizes.desktop.small};
+    font-weight: 600;
+    line-height: 30px;
   }
 `;
 
