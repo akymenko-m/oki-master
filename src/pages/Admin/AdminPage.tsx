@@ -5,7 +5,7 @@ import LogInModal from '../../components/LogInModal/LogInModal';
 import appStyles from '../../components/App/App.styled';
 import storage from '../../helpers/storage';
 import { useAppDispatch } from '../../hooks/hooks';
-import { fetchOrders } from '../../redux/ordersOperations';
+import { fetchByQuery, fetchOrders } from '../../redux/ordersOperations';
 import { getCurrentOrder, getIsloading, getTotal } from '../../redux/selectors';
 import Loader from '../../components/Loader/Loader';
 import Logo from '../../components/Logo/Logo';
@@ -16,13 +16,25 @@ import { setCurrentOrder } from '../../redux/ordersSlice';
 import { IItem } from '../../interfaces/admin/item.interface';
 import CurrentOrders from '../../components/CurrentOrders/CurrentOrders';
 import ArchivedOrders from '../../components/ArchivedOrders/ArchivedOrders';
-import { fetchArchivedOrders } from '../../redux/archivedOrdersOperations';
+import {
+  fetchArchiveByQuery,
+  fetchArchivedOrders,
+} from '../../redux/archivedOrdersOperations';
 import UpdateOrder from '../../components/UpdateOrder/UpdateOrder';
+import Filter from '../../components/Filter/Filter';
 
 function AdminPage() {
   const { Container } = appStyles;
-  const { MainBlock, HeaderBlock, Title, StyledArchiveIcon, StyledBackIcon } =
-    styles;
+  const {
+    MainBlock,
+    HeaderBlock,
+    Title,
+    StyledArchiveIcon,
+    StyledBackIcon,
+    StyledPlusIcon,
+    HeaderAdmin,
+    StyledOrdersIcon,
+  } = styles;
 
   const [isLogIn, setIsLogIn] = useState(storage.load('login') ?? false);
   const [page, setPage] = useState(1);
@@ -65,6 +77,16 @@ function AdminPage() {
     setPage((prevState) => prevState + 1);
   };
 
+  const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const query = event.target.value;
+    setIsUseFilter(true);
+    if (isArchived) {
+      dispatch(fetchArchiveByQuery(query));
+    } else {
+      dispatch(fetchByQuery(query));
+    }
+  };
+
   useEffect(() => {
     if (isLogIn && !isArchived && !isUseFilter) {
       dispatch(fetchOrders(page));
@@ -76,13 +98,13 @@ function AdminPage() {
   }, [page, dispatch, isLogIn, totalOrders, isArchived, isUseFilter]);
 
   useEffect(() => {
-    if (newOrder) {
+    if (newOrder || updateOrder) {
       document.body.style.overflow = 'hidden';
     }
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [newOrder]);
+  }, [newOrder, updateOrder]);
 
   return (
     <Container>
@@ -91,9 +113,9 @@ function AdminPage() {
       <ToastContainer autoClose={2000} closeOnClick />
 
       {isLogIn ? (
-        <MainBlock>
-          <HeaderBlock>
-            <Logo className="admin" />
+        <MainBlock className="">
+          <HeaderBlock className="admin-page">
+            <Logo className="admin-page" />
             <Title>{isArchived ? 'Архів' : 'Усі замовлення'}</Title>
 
             <Button
@@ -105,6 +127,36 @@ function AdminPage() {
             </Button>
           </HeaderBlock>
 
+          <HeaderAdmin>
+            <Title>{isArchived ? 'Архів' : 'Усі замовлення'}</Title>
+
+            {!isArchived && (
+              <Button
+                type="button"
+                onClick={createNewOrder}
+                className="with-icons"
+              >
+                Нове замовлення
+                <StyledPlusIcon className="header" />
+              </Button>
+            )}
+
+            <Button
+              type="button"
+              onClick={toggleArchiveOrders}
+              className="with-icons"
+            >
+              {isArchived ? 'Усі замовлення' : 'Архів'}
+              {isArchived ? (
+                <StyledOrdersIcon />
+              ) : (
+                <StyledArchiveIcon className="header" />
+              )}
+            </Button>
+
+            <Filter className="header" onChange={inputChange} />
+          </HeaderAdmin>
+
           {!isArchived && (
             <CurrentOrders
               getOrderDetails={getOrderDetails}
@@ -112,7 +164,7 @@ function AdminPage() {
               createNewOrder={createNewOrder}
               handleLoadMore={handleLoadMore}
               showLoadMore={showLoadMore}
-              setIsUseFilter={setIsUseFilter}
+              onChange={inputChange}
             />
           )}
 
@@ -122,7 +174,7 @@ function AdminPage() {
               toggleOrderDetails={toggleOrderDetails}
               handleLoadMore={handleLoadMore}
               showLoadMore={showLoadMore}
-              setIsUseFilter={setIsUseFilter}
+              onChange={inputChange}
             />
           )}
         </MainBlock>

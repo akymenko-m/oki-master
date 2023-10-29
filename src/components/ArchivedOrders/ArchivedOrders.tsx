@@ -1,10 +1,8 @@
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '../../hooks/hooks';
 import OrderList from '../OrderList/OrderList';
 import { IItem } from '../../interfaces/admin/item.interface';
 import Filter from '../Filter/Filter';
 import { getTotal, sortedArchiveOrders } from '../../redux/selectors';
-import { fetchArchiveByQuery } from '../../redux/archivedOrdersOperations';
 import Button from '../Button/Button';
 
 interface IProps {
@@ -12,7 +10,7 @@ interface IProps {
   toggleOrderDetails: () => void;
   handleLoadMore: () => void;
   showLoadMore: boolean;
-  setIsUseFilter: React.Dispatch<React.SetStateAction<boolean>>;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 function ArchivedOrders({
@@ -20,21 +18,14 @@ function ArchivedOrders({
   toggleOrderDetails,
   handleLoadMore,
   showLoadMore,
-  setIsUseFilter,
+  onChange,
 }: IProps) {
   const archivedOrders = useSelector(sortedArchiveOrders);
   const totalOrders = useSelector(getTotal);
 
-  const dispatch = useAppDispatch();
-  const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const query = event.target.value;
-    setIsUseFilter(true);
-    dispatch(fetchArchiveByQuery(query));
-  };
-
   return (
     <div>
-      <Filter onChange={inputChange} />
+      <Filter className="orders" onChange={onChange} />
 
       {archivedOrders.length ? (
         <OrderList
@@ -49,7 +40,7 @@ function ArchivedOrders({
       {showLoadMore && totalOrders && (
         <Button
           type="button"
-          className="order-form update"
+          className="order-form update page"
           onClick={handleLoadMore}
         >
           Завантажити ще

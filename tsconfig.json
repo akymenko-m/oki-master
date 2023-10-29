@@ -10,7 +10,6 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     /* Bundler mode */
-    // "moduleResolution": "bundler",
     "moduleResolution": "Node",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
@@ -22,9 +21,6 @@
     /* Linting */
     "strict": true,
     "types": ["vite-plugin-svgr/client", "node"]
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true
   },
   "include": [".eslintrc.cjs", "src"],
   "references": [{ "path": "./tsconfig.node.json" }]

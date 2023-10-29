@@ -135,13 +135,16 @@ const StyledButton = styled.button`
   }
 
   &.order {
+    width: 16px;
+    height: 16px;
+    position: absolute;
     top: 0;
-    right: 0;
+    right: 15px;
   }
 
   &.order-form {
-    padding: 1px 50px;
-    height: 32px;
+    padding: 2px 50px;
+    max-height: 32px;
     border-radius: 10px;
     border: 1px solid ${(props) => props.theme.colors.dark};
     background-color: ${(props) => props.theme.colors.dark};
@@ -154,6 +157,9 @@ const StyledButton = styled.button`
 
     &.update {
       width: 100%;
+    }
+
+    &.page {
       margin-top: 20px;
     }
 
@@ -186,7 +192,9 @@ const StyledButton = styled.button`
   }
 
   &.open:hover path,
-  &.open:focus path {
+  &.open:focus path,
+  &.order:hover path,
+  &.order:focus path {
     fill: ${(props) => props.theme.colors.accent};
   }
 
@@ -213,11 +221,49 @@ const StyledButton = styled.button`
       height: 66px;
     }
 
-    &.order {
+    &.order-status {
       width: 30px;
       height: 30px;
       top: 12px;
       right: 24px;
+    }
+
+    &.order {
+      width: 24px;
+      height: 24px;
+      top: 0;
+      right: 24px;
+    }
+
+    &.order-form {
+      padding: 4px 50px;
+      max-height: 35px;
+    }
+
+    &.order-form.update.page {
+      display: block;
+      margin: 0 auto;
+      margin-top: 20px;
+      max-width: 50%;
+    }
+
+    &.add {
+      display: none;
+    }
+
+    &.with-icons {
+      min-width: max-content;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: ${(props) => props.theme.fontSizes.desktop.xs};
+      line-height: 30px;
+      transition: color 250ms ${(props) => props.theme.animations.cubicBezier};
+
+      &:hover,
+      &:focus {
+        color: ${(props) => props.theme.colors.accent};
+      }
     }
   }
 
@@ -236,14 +282,40 @@ const StyledButton = styled.button`
       right: 16px;
     }
 
-    &.order {
+    &.order-status {
       top: 18px;
+      right: 18px;
+    }
+
+    &.order {
+      width: 30px;
+      height: 30px;
+      top: 28px;
       right: 18px;
     }
 
     &.login {
       width: 246px;
       padding: 10px 50px;
+    }
+
+    &.order-form {
+      margin: 0 auto;
+      margin-right: 0;
+      padding: 11px 80px;
+      max-height: 53px;
+      width: calc(50% - 10px);
+      font-size: ${(props) => props.theme.fontSizes.desktop.medium};
+      font-weight: 600;
+      line-height: 30px;
+
+      &.update {
+        margin: 0;
+      }
+
+      &.with-icons {
+        gap: 8px;
+      }
     }
   }
 `;

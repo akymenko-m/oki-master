@@ -1,4 +1,5 @@
 import { toast } from 'react-toastify';
+import { useEffect } from 'react';
 import Button from '../Button/Button';
 import OrderForm from '../OrderForm/OrderForm';
 import { IItem } from '../../interfaces/admin/item.interface';
@@ -10,6 +11,7 @@ import {
   deleteArchivedOrder,
   fetchArchivedOrders,
 } from '../../redux/archivedOrdersOperations';
+import styles from './UpdateOrder.styled';
 
 interface IProps {
   toggleOrderDetails: () => void;
@@ -24,6 +26,8 @@ function UpdateOrder({
   page,
   isArchived,
 }: IProps): JSX.Element {
+  const { ButtonsBlock } = styles;
+
   const dispatch = useAppDispatch();
 
   const formattedFormData = {
@@ -83,31 +87,51 @@ function UpdateOrder({
     dispatch(deleteOrder(currentOrder!._id!));
   };
 
+  useEffect(() => {
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.code === 'Escape') {
+        toggleOrderDetails();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeydown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeydown);
+    };
+  }, [toggleOrderDetails]);
+
   return (
-    <OrderLayout title="Картка замовлення" toggleModal={toggleOrderDetails}>
+    <OrderLayout
+      title="Картка замовлення"
+      className="order"
+      toggleModal={toggleOrderDetails}
+    >
       <OrderForm
         toggleOrderDetails={toggleOrderDetails}
         currentOrder={currentOrder}
         isArchived={isArchived}
       />
 
-      {!isArchived && (
+      <ButtonsBlock>
+        {!isArchived && (
+          <Button
+            type="button"
+            className="order-form update"
+            onClick={handleToArchive}
+          >
+            В архів
+          </Button>
+        )}
+
         <Button
           type="button"
           className="order-form update"
-          onClick={handleToArchive}
+          onClick={handleDelete}
         >
-          В архів
+          Видалити
         </Button>
-      )}
-
-      <Button
-        type="button"
-        className="order-form update"
-        onClick={handleDelete}
-      >
-        Видалити замовлення
-      </Button>
+      </ButtonsBlock>
     </OrderLayout>
   );
 }

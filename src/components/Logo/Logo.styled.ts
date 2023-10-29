@@ -6,16 +6,45 @@ const Link = styled.a`
   height: auto;
   line-height: 0;
 
-  &.order {
+  &.order-status {
     position: absolute;
     top: 3px;
     left: 10px;
   }
 
-  &.admin {
+  &.admin-page {
     position: absolute;
     top: 0;
     left: 0;
+  }
+
+  &.admin {
+    position: absolute;
+    top: 0;
+    left: 15px;
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.m}) {
+    &.order-status {
+      top: 12px;
+      left: 24px;
+    }
+
+    &.admin.order {
+      left: 41px;
+    }
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+    &.order-status {
+      top: 28px;
+      left: 41px;
+    }
+
+    &.order {
+      top: 20px;
+      left: 41px;
+    }
   }
 `;
 
@@ -31,7 +60,7 @@ const StyledLogo = styled(Logo)`
     fill: ${(props) => props.theme.colors.text};
   }
 
-  &.order {
+  &.order-status {
     width: 32px;
     height: 25px;
     fill: ${(props) => props.theme.colors.accent};
@@ -41,7 +70,8 @@ const StyledLogo = styled(Logo)`
     fill: ${(props) => props.theme.colors.accent};
   }
 
-  &.admin {
+  &.admin,
+  &.admin-page {
     width: 32px;
     height: 25px;
     fill: ${(props) => props.theme.colors.accent};
@@ -58,16 +88,23 @@ const StyledLogo = styled(Logo)`
       height: 94px;
     }
 
-    &.order {
+    &.order-status {
       width: 73px;
       height: 70px;
-      top: 12px;
-      left: 24px;
     }
 
     &.login {
       width: 73px;
       height: 70px;
+    }
+
+    &.admin {
+      width: 59px;
+      height: 46px;
+    }
+
+    &.admin-page {
+      display: none;
     }
   }
 
@@ -78,8 +115,8 @@ const StyledLogo = styled(Logo)`
     }
 
     &.order {
-      top: 28px;
-      left: 41px;
+      width: 73px;
+      height: 70px;
     }
 
     &.login {

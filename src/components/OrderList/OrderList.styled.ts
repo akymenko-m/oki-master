@@ -6,9 +6,7 @@ const List = styled.ul`
   gap: 12px;
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
-  }
-
-  @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+    gap: 0;
   }
 `;
 
