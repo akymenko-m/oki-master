@@ -1,5 +1,6 @@
 import { IItem } from '../../interfaces/admin/item.interface';
 import OrderItem from '../OrderItem/OrderItem';
+import OrderListHeader from '../OrderListHeader/OrderListHeader';
 import styles from './OrderList.styled';
 
 interface IProps {
@@ -13,6 +14,7 @@ function OrderList({ orders, getOrderDetails, toogleOrderDetails }: IProps) {
 
   return (
     <List>
+      <OrderListHeader className="header bold" />
       {orders.map((order) => (
         <OrderItem
           key={order.orderNumber}
