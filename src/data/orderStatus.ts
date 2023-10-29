@@ -1,4 +1,6 @@
-const orderStatus = [
+import { IOrderStatus } from '../interfaces/orderStatus.interface';
+
+const orderStatus: IOrderStatus[] = [
   {
     status: 'accepted',
     name: 'Прийнято',
