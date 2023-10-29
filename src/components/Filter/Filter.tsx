@@ -1,14 +1,14 @@
 import styles from './Filter.styled';
 
-interface IProps {
+interface IProps extends React.ComponentPropsWithoutRef<'div'> {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function Filter({ onChange }: IProps) {
+function Filter({ onChange, className }: IProps) {
   const { FilterInput, StyledSearchIcon, FilterBlock } = styles;
 
   return (
-    <FilterBlock>
+    <FilterBlock className={className}>
       <FilterInput
         type="text"
         name="filter"

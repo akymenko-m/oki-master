@@ -5,9 +5,16 @@ const FilterBlock = styled.div`
   position: relative;
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
-  }
+    &.orders {
+      display: none;
+    }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+    &.header {
+      flex-grow: 1;
+      & input {
+        margin-bottom: 0;
+      }
+    }
   }
 `;
 
@@ -33,9 +40,12 @@ const FilterInput = styled.input`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
+    font-size: ${(props) => props.theme.fontSizes.desktop.xs};
+    line-height: 30px;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+    padding: 16px 8px;
   }
 `;
 
@@ -46,6 +56,18 @@ const StyledSearchIcon = styled(SearchIcon)`
   top: 8px;
   right: 8px;
   fill: ${(props) => props.theme.colors.dark};
+
+  @media (min-width: ${(props) => props.theme.breakpoints.m}) {
+    height: 20px;
+    width: 20px;
+    top: 10px;
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+    height: 30px;
+    width: 30px;
+    top: 16px;
+  }
 `;
 
 export default {
