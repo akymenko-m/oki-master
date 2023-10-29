@@ -51,13 +51,24 @@ const Link = styled.a`
 const StyledLogo = styled(Logo)`
   width: 59px;
   height: 46px;
+  transition: fill 250ms ${(props) => props.theme.animations.cubicBezier};
 
   &.header {
     fill: ${(props) => props.theme.colors.accent};
+
+    &:hover,
+    &:focus {
+      fill: ${(props) => props.theme.colors.dark};
+    }
   }
 
   &.footer {
     fill: ${(props) => props.theme.colors.text};
+
+    &:hover,
+    &:focus {
+      fill: ${(props) => props.theme.colors.dark};
+    }
   }
 
   &.order-status {

@@ -17,8 +17,11 @@ const Text = styled.a`
   display: flex;
   align-items: center;
   gap: 4px;
+  position: relative;
+  overflow: hidden;
   font-style: normal;
   line-height: ${(props) => props.theme.lineHeight.medium};
+  transition: color 250ms ${(props) => props.theme.animations.cubicBezier};
 
   & .bold {
     font-weight: 500;
@@ -26,6 +29,7 @@ const Text = styled.a`
 
   & svg {
     width: 20px;
+    transition: fill 250ms ${(props) => props.theme.animations.cubicBezier};
   }
 
   &.contacts {
@@ -35,6 +39,12 @@ const Text = styled.a`
   &.footer {
     font-size: ${(props) => props.theme.fontSizes.mobile.xs};
     fill: ${(props) => props.theme.colors.text};
+  }
+
+  &:hover,
+  &:focus {
+    fill: ${(props) => props.theme.colors.dark};
+    color: ${(props) => props.theme.colors.dark};
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
