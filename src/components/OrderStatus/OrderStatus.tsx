@@ -41,7 +41,7 @@ function OrderStatus({
             onClick={(e) => e.stopPropagation()}
           >
             <ModalHeader>
-              <Logo className="order" />
+              <Logo className="order-status" />
               <Button
                 className="order-status"
                 onClick={handleStatusOrder}
