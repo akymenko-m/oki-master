@@ -4,6 +4,9 @@ interface IProps {
   data: {
     id: string;
     icon: string;
+    description: {
+      title: string;
+    };
   };
 }
 
@@ -13,7 +16,7 @@ function ServiceItem({ data }: IProps): JSX.Element {
   return (
     <Item>
       <StyledLink className="services" to={`#${data.id}`}>
-        <Image src={data.icon} alt="jg" />
+        <Image src={data.icon} alt={data.description.title} />
       </StyledLink>
     </Item>
   );

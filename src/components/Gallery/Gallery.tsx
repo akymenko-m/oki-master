@@ -22,7 +22,7 @@ function Gallery(): JSX.Element {
                   <source srcSet={el.tablet} media="(min-width: 768px)" />
                   <source srcSet={el.mobile} media="(max-width: 767px)" />
 
-                  <Image src={el.mobile} alt="Приклад робіт" />
+                  <Image src={el.mobile} alt="Ремонт медичної техніки" />
                 </picture>
               </Item>
             ))}

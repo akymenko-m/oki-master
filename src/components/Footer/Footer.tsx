@@ -6,7 +6,7 @@ import styles from './Footer.styled';
 import AddressData from '../../data/address';
 
 function Footer(): JSX.Element {
-  const { Section, ContentBlock, FooterContainer } = styles;
+  const { Section, ContentBlock, FooterContainer, CopiratingText } = styles;
   const { Container } = appStyles;
 
   return (
@@ -20,6 +20,7 @@ function Footer(): JSX.Element {
             <Address className="footer" location={AddressData.location} />
           </ContentBlock>
         </FooterContainer>
+        <CopiratingText>&copy; 2023</CopiratingText>
       </Container>
     </Section>
   );
