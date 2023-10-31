@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 const Section = styled.footer`
-  padding-top: 8px;
+  padding: 8px 0;
   background-color: ${(props) => props.theme.colors.light};
 
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
@@ -41,4 +41,16 @@ const ContentBlock = styled.div`
   }
 `;
 
-export default { Section, ContentBlock, FooterContainer };
+const CopiratingText = styled.p`
+  margin-top: 14px;
+  text-align: center;
+  font-size: ${(props) => props.theme.fontSizes.mobile.small};
+
+  @media (min-width: ${(props) => props.theme.breakpoints.m}) {
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.l}) {
+  }
+`;
+
+export default { Section, ContentBlock, FooterContainer, CopiratingText };
