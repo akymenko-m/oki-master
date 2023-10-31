@@ -63,7 +63,7 @@ function ServicesCard({ data }: IProps): JSX.Element {
                 <source srcSet={images.mobile} media="(max-width: 767px)" />
                 <source srcSet={images.tablet} media="(max-width: 1279px)" />
                 <source srcSet={images.desktop} media="(min-width: 1280px)" />
-                <img src={images.mobile} alt="Тонометр" />
+                <img src={images.mobile} alt={data.description.title} />
               </picture>
             </ImageBlock>
           </div>
