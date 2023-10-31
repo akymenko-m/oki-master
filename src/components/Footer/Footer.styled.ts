@@ -45,12 +45,6 @@ const CopiratingText = styled.p`
   margin-top: 14px;
   text-align: center;
   font-size: ${(props) => props.theme.fontSizes.mobile.small};
-
-  @media (min-width: ${(props) => props.theme.breakpoints.m}) {
-  }
-
-  @media (min-width: ${(props) => props.theme.breakpoints.l}) {
-  }
 `;
 
 export default { Section, ContentBlock, FooterContainer, CopiratingText };
