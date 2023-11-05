@@ -98,6 +98,16 @@ const Input = styled.input`
     border: 1px solid ${(props) => props.theme.colors.secondary};
   }
 
+  &[name='phone']::-webkit-outer-spin-button,
+  &[name='phone']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type='number'] {
+    appearance: textfield;
+  }
+
   @media (min-width: ${(props) => props.theme.breakpoints.m}) {
     width: 100%;
     font-size: ${(props) => props.theme.fontSizes.desktop.xs};
