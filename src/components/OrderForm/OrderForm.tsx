@@ -7,6 +7,7 @@ import orderStatus from '../../data/orderStatus';
 import { addOrder, updateOrder } from '../../redux/ordersOperations';
 import { useAppDispatch } from '../../hooks/hooks';
 import { IItem } from '../../interfaces/admin/item.interface';
+import allowOnlyNumbers from '../../helpers/allowOnlyNumbers';
 
 interface IProps {
   createNewOrder?: () => void;
@@ -56,9 +57,34 @@ function OrderForm({
     status: currentOrder?.status ? currentOrder.status : undefined,
   });
 
+  const preventInvalidInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const pattern = /^[a-zA-Zа-яА-Я]+$/;
+    const { value } = e.currentTarget;
+    const { key } = e;
+    const trimmedValue = value.trim();
+    const hasLetters = pattern.test(key);
+    const hasSpaces = key === ' ';
+    const hasNumbers = /\d/.test(key);
+
+    if (!hasLetters && !hasSpaces && !hasNumbers) {
+      e.preventDefault();
+    }
+
+    if (trimmedValue.length === 0 && (key === ' ' || hasNumbers)) {
+      e.preventDefault();
+    }
+  };
+
   const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = event.target.value;
+    let inputValue = event.target.value;
     const inputName = event.target.name;
+    const pattern = /^[0-9]+$/;
+
+    if (inputName === 'phone') {
+      if (!pattern.test(inputValue)) {
+        inputValue = inputValue.replace(/[^0-9]/g, '');
+      }
+    }
 
     setFormData((prevState) => ({
       ...prevState,
@@ -143,6 +169,7 @@ function OrderForm({
             type="text"
             name="name"
             id="name"
+            onKeyDown={preventInvalidInput}
             onChange={inputChange}
             required
             value={formData.name}
@@ -156,11 +183,11 @@ function OrderForm({
             type="text"
             name="phone"
             id="phone"
-            onChange={inputChange}
             required
             value={formData.phone}
-            maxLength={10}
             minLength={10}
+            maxLength={10}
+            onChange={inputChange}
             readOnly={!!isArchived}
           />
         </InputBlock>
@@ -196,11 +223,13 @@ function OrderForm({
             type="number"
             name="price"
             id="price"
+            onKeyDown={allowOnlyNumbers}
             onChange={inputChange}
             required
             min={1}
             value={formData.price}
             readOnly={!!isArchived}
+            onWheel={(e) => (e.target as HTMLElement).blur()}
           />
         </InputBlock>
 

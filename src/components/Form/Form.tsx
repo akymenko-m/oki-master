@@ -5,6 +5,7 @@ import Button from '../Button/Button';
 import { useAppDispatch } from '../../hooks/hooks';
 import { getOrder } from '../../redux/ordersOperations';
 import { IItem } from '../../interfaces/admin/item.interface';
+import allowOnlyNumbers from '../../helpers/allowOnlyNumbers';
 
 interface IProps {
   handleStatusOrder: () => void;
@@ -54,6 +55,7 @@ function Form({ handleStatusOrder, setOrderData }: IProps): JSX.Element {
         required
         maxLength={10}
         minLength={10}
+        onKeyDown={allowOnlyNumbers}
         onChange={inputChange}
       />
       <Button className="form" type="submit">
