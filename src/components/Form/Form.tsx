@@ -5,7 +5,6 @@ import Button from '../Button/Button';
 import { useAppDispatch } from '../../hooks/hooks';
 import { getOrder } from '../../redux/ordersOperations';
 import { IItem } from '../../interfaces/admin/item.interface';
-import allowOnlyNumbers from '../../helpers/allowOnlyNumbers';
 
 interface IProps {
   handleStatusOrder: () => void;
@@ -19,7 +18,12 @@ function Form({ handleStatusOrder, setOrderData }: IProps): JSX.Element {
   const dispatch = useAppDispatch();
 
   const inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData(event.target.value);
+    const pattern = /^[0-9]+$/;
+    let { value } = event.target;
+    if (!pattern.test(value)) {
+      value = value.replace(/[^0-9]/g, '');
+    }
+    setFormData(value);
   };
 
   const resetFormData = () => {
@@ -55,7 +59,6 @@ function Form({ handleStatusOrder, setOrderData }: IProps): JSX.Element {
         required
         maxLength={10}
         minLength={10}
-        onKeyDown={allowOnlyNumbers}
         onChange={inputChange}
       />
       <Button className="form" type="submit">

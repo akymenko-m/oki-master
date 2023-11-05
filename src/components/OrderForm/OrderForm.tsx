@@ -7,7 +7,7 @@ import orderStatus from '../../data/orderStatus';
 import { addOrder, updateOrder } from '../../redux/ordersOperations';
 import { useAppDispatch } from '../../hooks/hooks';
 import { IItem } from '../../interfaces/admin/item.interface';
-import allowOnlyNumbers from '../../helpers/allowOnlyNumbers';
+import preventAllowSumbols from '../../helpers/preventAllowSumbols';
 
 interface IProps {
   createNewOrder?: () => void;
@@ -80,7 +80,7 @@ function OrderForm({
     const inputName = event.target.name;
     const pattern = /^[0-9]+$/;
 
-    if (inputName === 'phone') {
+    if (inputName === 'phone' || inputName === 'price') {
       if (!pattern.test(inputValue)) {
         inputValue = inputValue.replace(/[^0-9]/g, '');
       }
@@ -223,7 +223,7 @@ function OrderForm({
             type="number"
             name="price"
             id="price"
-            onKeyDown={allowOnlyNumbers}
+            onKeyDown={preventAllowSumbols}
             onChange={inputChange}
             required
             min={1}
