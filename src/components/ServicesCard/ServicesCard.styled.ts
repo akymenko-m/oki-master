@@ -121,6 +121,8 @@ const Details = styled.p`
 `;
 
 const Content = styled.div`
+  padding-bottom: 2px;
+
   @media (min-width: ${(props) => props.theme.breakpoints.l}) {
     padding: 10px 49px 10px 10px;
   }

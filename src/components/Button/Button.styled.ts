@@ -9,7 +9,9 @@ const StyledButton = styled.button`
   }
 
   &.general {
-    width: 100%;
+    width: calc(100% - 2px);
+    display: block;
+    margin: 0 auto;
     height: 32px;
     padding: 1px 42px;
     border-radius: 10px;
@@ -23,7 +25,7 @@ const StyledButton = styled.button`
       background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
       box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    @media (any-hover: hover) {
+    @media (hover: hover) {
       &:hover {
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       }
