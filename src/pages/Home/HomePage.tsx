@@ -15,7 +15,7 @@ import OrderStatus from '../../components/OrderStatus/OrderStatus';
 import About from '../../components/About/About';
 import { IItem } from '../../interfaces/admin/item.interface';
 import Loader from '../../components/Loader/Loader';
-import { getIsloading } from '../../redux/selectors';
+import { getIsError, getIsloading } from '../../redux/selectors';
 
 const API_KEY = process.env.REACT_APP_API_KEY!;
 const MAP_URL = process.env.MAP_URL!;
@@ -26,6 +26,7 @@ function HomePage() {
   const [showStatusOrder, setShowStatusOrder] = useState(false);
   const [orderData, setOrderData] = useState<IItem | undefined>(undefined);
   const isLoading = useSelector(getIsloading);
+  const isError = useSelector(getIsError);
 
   const handleStatusOrder = () => {
     setShowStatusOrder(!showStatusOrder);
@@ -36,10 +37,15 @@ function HomePage() {
     if (showStatusOrder) {
       document.body.style.overflow = 'hidden';
     }
+
+    if (isError) {
+      document.body.style.overflow = 'unset';
+    }
+
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [showStatusOrder]);
+  }, [showStatusOrder, isError]);
 
   return (
     <div>
