@@ -58,7 +58,7 @@ function OrderForm({
   });
 
   const preventInvalidInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    const pattern = /^[a-zA-Zа-яА-Я]+$/;
+    const pattern = /^[a-zA-Zа-яА-ЯґҐЁёІіЇїЄє'’ʼ]+$/;
     const { value } = e.currentTarget;
     const { key } = e;
     const trimmedValue = value.trim();
@@ -70,7 +70,10 @@ function OrderForm({
       e.preventDefault();
     }
 
-    if (trimmedValue.length === 0 && (key === ' ' || hasNumbers)) {
+    if (
+      trimmedValue.length === 0 &&
+      (key === ' ' || hasNumbers || key === "'")
+    ) {
       e.preventDefault();
     }
   };
